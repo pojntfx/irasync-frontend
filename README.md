@@ -18,15 +18,15 @@ live-server .
 
 ### A community in light mode
 
-#### Inital view on desktop
+#### Initial view on desktop
 ![A screenshot of a community in light mode on desktop](screenshots/screenshot_c_cyberpunk_light_lg_top.jpg)
 #### Scrolled down view on desktop
 ![A screenshot of a community in light mode on desktop, scrolled down](screenshots/screenshot_c_cyberpunk_light_lg_bottom.png)
-#### Inital view on mobile
+#### Initial view on mobile
 ![A screenshot of a community in light mode on mobile](screenshots/screenshot_c_cyberpunk_light_sm.png)
 
 ### A community in dark mode
-#### Inital view on desktop
+#### Initial view on desktop
 ![A screenshot of a community in dark mode on desktop](screenshots/screenshot_c_cyberpunk_dark_lg_top.jpg)
 #### Scrolled down view on mobile
 ![A screenshot of a community in dark mode on mobile](screenshots/screenshot_c_cyberpunk_dark_sm_bottom.png)
