@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <!-- Fontisto Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v2.0.1/css/fontisto/fontisto.min.css">
+
+  <!-- Custom edits -->
+  <link rel="stylesheet" href="/css/cyberpunk.css">
+  <link rel="stylesheet" href="/css/cyberpunk-dark.css">
+
+  <!-- Custom font -->
+  <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
+
+  <title>Illugraph | Cyberpunk</title>
+</head>
+
+<body>
+  <!-- Main Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark-navbar">
+    <div class="container px-0 px-sm-3 px-md-0 px-lg-3">
+      <!-- <a class="navbar-brand" href="#">Illugraph
+        <sup>BETA</sup>
+      </a> -->
+      <a class="navbar-brand navbar-normal-brand py-0" href="/">
+        <img src="/img/logo_light_color.svg" alt="Illugraph Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Communities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">People</a>
+          </li>
+        </ul>
+
+        <div class="ml-auto">
+          <div class="row">
+            <!-- <div class="col pr-1">
+              <button type="button" class="pt-2 btn btn-md btn-outline-success btn-card-vote-action btn-card-vote-more navbar-item-use-available-space"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fi fi-search"></i>
+              </button>
+            </div> -->
+            <div class="col pr-lg-1">
+              <button class="btn btn-outline-success btn-global-search navbar-item-use-available-space d-flex d-flex justify-content-center align-items-center">
+                <i class="fi fi-database"></i>
+                &nbsp;&nbsp;Global Search</button>
+            </div>
+            <div class="col px-lg-1 mb-2 mb-sm-0">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle navbar-item-use-available-space" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  User
+                </button>
+                <div class="dropdown-menu bg-dark-navbar navbar-item-use-available-space" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item link-light" href="#">Profile</a>
+                  <a class="dropdown-item link-light" href="#">Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item link-light" href="#">Logout</a>
+                </div>
+              </div>
+            </div>
+            <div class="col pl-lg-1">
+              <button class="btn btn-success navbar-item-use-available-space d-flex d-flex justify-content-center align-items-center">
+                <i class="fi fi-plus-a"></i>
+                &nbsp;&nbsp;Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Community's header -->
+  <div class="jumbotron text-light text-community-header jumbotron-community-header jumbotron-community-header-c-cyberpunk px-0 pb-2 mb-0 pb-sm-5 pt-2 pt-sm-5">
+    <div class="container px-md-0 px-lg-3">
+      <div class="row">
+        <div class="col-sm mt-2 mb-2 mb-sm-0">
+          <h1 class="display-4 header-title">
+            <span>/c/</span><span>Cyberpunk</span>
+          </h1>
+          <p class="lead mb-2 mb-sm-0 text-light">High Tech, Low Life</p>
+        </div>
+        <div class="col-sm col-12 mb-2 mb-sm-0 d-flex align-items-center justify-content-start justify-content-sm-end">
+          <a class="btn btn-success btn-community-join d-flex align-items-center" href="#" role="button">
+          <i class="fi fi-angle-dobule-right"></i>&nbsp;&nbsp;Join Community</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Community Navigation -->
+  <nav class="navbar navbar-expand bg-dark-navbar navbar-dark bg-community-tabs sticky-top pt-0 pb-0 mb-2 nav-tabs">
+    <div class="container d-flex justify-content-between px-0 px-sm-3 px-md-0 px-lg-3 flex-column-reverse flex-sm-row">
+      <div class="d-flex justify-content-start align-items-end pt-2">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-light active" href="#">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light text-muted" href="#">Files</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light text-muted" href="#">Apps</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light text-muted" href="#">Wiki</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <div class="input-group pr-2 mt-1 mt-sm-0 input-group-searchbar d-flex d-sm-none d-lg-flex">
+          <input class="form-control form-control-grey text-secondary" placeholder="Search locally" aria-label="Search locally" type="text">
+          <button type="button" class="pt-2 btn btn-success btn-searchbar" aria-haspopup="true" aria-expanded="false">
+            <i class="fi fi-search"></i>
+          </button>
+          </span>
+        </div>
+        <button type="button" class="pt-2 mr-2 d-none d-sm-inline-block d-lg-none btn btn-md btn-outline-success btn-card-vote-action btn-card-vote-more" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fi fi-search"></i>
+        </button>
+        <button type="button" class="pt-2 mt-1 mt-sm-0 btn btn-md btn-outline-success btn-card-vote-action btn-card-vote-more" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fi fi-player-settings"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container container-posts px-md-0 px-lg-3">
+    <div class="card mb-2 bg-dark">
+      <!--  md = mdAndUp, p-2 = pa-2 -->
+      <div class="d-flex flex-column flex-md-row card-post-overview">
+        <div class="d-flex flex-row flex-md-column justify-content-between align-items-md-center order-3 order-md-1 col-12 col-md-2 pb-2 px-2 p-md-2">
+          <button class="btn btn-block btn-outline-success btn-vote">
+            <i class="fi fi-arrow-up"></i>
+          </button>
+          <div class="text-votes d-flex justify-content-center">
+            <div class="align-self-center">
+              <b class="text-light">225</b>
+            </div>
+          </div>
+          <button class="btn btn-block btn-outline-danger btn-vote">
+            <i class="fi fi-arrow-down"></i>
+          </button>
+        </div>
+        <div class="order-1 order-md-2 col-12 col-md-4 px-0 img-fluid-post-crop-container">
+          <img src="http://via.placeholder.com/350x250/0A4457/28a745" alt="A random image" class="img-fluid-post">
+        </div>
+        <div class="d-flex flex-column justify-content-between order-2 col-12 col-md-6 order-md-3 p-2">
+          <div class="d-flex flex-column justify-content-start align-items-start">
+            <h5 class="card-title">
+              <a href="#" class="text-community-header">TypeScript is an awesome language. Here is the proof</a>
+            </h5>
+            <div class="d-flex flex-row justify-content-start mb-2">
+              <span class="text-card-vote-by text-muted">25 Minutes ago by&nbsp;</span>
+              <a href="#" class="text-card-vote-by text-light">pojntfx</a>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-between justify-content-md-end">
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Comments</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Share</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Cite</button>
+            <div class="btn-group ml-md-auto">
+              <button type="button" class="btn btn-md btn-outline-success btn-card-vote-action btn-card-vote-more" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fi fi-more-v-a"></i>
+              </button>
+              <div class="dropdown-menu bg-dark-navbar dropdown-menu-right">
+                <a class="dropdown-item link-light" href="#">Bookmark</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item link-light" href="#">Hide</a>
+                <a class="dropdown-item link-light" href="#">Report</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-2 bg-dark">
+      <!--  md = mdAndUp, p-2 = pa-2 -->
+      <div class="d-flex flex-column flex-md-row card-post-overview">
+        <div class="d-flex flex-row flex-md-column justify-content-between align-items-md-center order-3 order-md-1 col-12 col-md-2 pb-2 px-2 p-md-2">
+          <button class="btn btn-block btn-outline-success btn-vote">
+            <i class="fi fi-arrow-up"></i>
+          </button>
+          <div class="text-votes d-flex justify-content-center">
+            <div class="align-self-center">
+              <b class="text-light">225</b>
+            </div>
+          </div>
+          <button class="btn btn-block btn-outline-danger btn-vote">
+            <i class="fi fi-arrow-down"></i>
+          </button>
+        </div>
+        <div class="order-1 order-md-2 col-12 col-md-4 px-0 img-fluid-post-crop-container">
+          <img src="http://via.placeholder.com/350x250/0A4457/28a745" alt="A random image" class="img-fluid-post">
+        </div>
+        <div class="d-flex flex-column justify-content-between order-2 col-12 col-md-6 order-md-3 p-2">
+          <div class="d-flex flex-column justify-content-start align-items-start">
+            <h5 class="card-title">
+              <a href="#" class="text-community-header">TypeScript is an awesome language. Here is the proof</a>
+            </h5>
+            <div class="d-flex flex-row justify-content-start mb-2">
+              <span class="text-card-vote-by text-muted">25 Minutes ago by&nbsp;</span>
+              <a href="#" class="text-card-vote-by text-light">pojntfx</a>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-between justify-content-md-end">
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Comments</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Share</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Cite</button>
+            <div class="btn-group ml-md-auto">
+              <button type="button" class="btn btn-md btn-outline-success btn-card-vote-action btn-card-vote-more" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fi fi-more-v-a"></i>
+              </button>
+              <div class="dropdown-menu bg-dark-navbar dropdown-menu-right">
+                <a class="dropdown-item link-light" href="#">Bookmark</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item link-light" href="#">Hide</a>
+                <a class="dropdown-item link-light" href="#">Report</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-2 bg-dark">
+      <!--  md = mdAndUp, p-2 = pa-2 -->
+      <div class="d-flex flex-column flex-md-row card-post-overview">
+        <div class="d-flex flex-row flex-md-column justify-content-between align-items-md-center order-3 order-md-1 col-12 col-md-2 pb-2 px-2 p-md-2">
+          <button class="btn btn-block btn-outline-success btn-vote">
+            <i class="fi fi-arrow-up"></i>
+          </button>
+          <div class="text-votes d-flex justify-content-center">
+            <div class="align-self-center">
+              <b class="text-light">225</b>
+            </div>
+          </div>
+          <button class="btn btn-block btn-outline-danger btn-vote">
+            <i class="fi fi-arrow-down"></i>
+          </button>
+        </div>
+        <div class="order-1 order-md-2 col-12 col-md-4 px-0 img-fluid-post-crop-container">
+          <img src="http://via.placeholder.com/350x250/0A4457/28a745" alt="A random image" class="img-fluid-post">
+        </div>
+        <div class="d-flex flex-column justify-content-between order-2 col-12 col-md-6 order-md-3 p-2">
+          <div class="d-flex flex-column justify-content-start align-items-start">
+            <h5 class="card-title">
+              <a href="#" class="text-community-header">TypeScript is an awesome language. Here is the proof</a>
+            </h5>
+            <div class="d-flex flex-row justify-content-start mb-2">
+              <span class="text-card-vote-by text-muted">25 Minutes ago by&nbsp;</span>
+              <a href="#" class="text-card-vote-by text-light">pojntfx</a>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-between justify-content-md-end">
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Comments</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Share</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Cite</button>
+            <div class="btn-group ml-md-auto">
+              <button type="button" class="btn btn-md btn-outline-success btn-card-vote-action btn-card-vote-more" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fi fi-more-v-a"></i>
+              </button>
+              <div class="dropdown-menu bg-dark-navbar dropdown-menu-right">
+                <a class="dropdown-item link-light" href="#">Bookmark</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item link-light" href="#">Hide</a>
+                <a class="dropdown-item link-light" href="#">Report</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-dark">
+      <!--  md = mdAndUp, p-2 = pa-2 -->
+      <div class="d-flex flex-column flex-md-row card-post-overview">
+        <div class="d-flex flex-row flex-md-column justify-content-between align-items-md-center order-3 order-md-1 col-12 col-md-2 pb-2 px-2 p-md-2 bg-dark">
+          <button class="btn btn-block btn-outline-success btn-vote">
+            <i class="fi fi-arrow-up"></i>
+          </button>
+          <div class="text-votes d-flex justify-content-center">
+            <div class="align-self-center">
+              <b class="text-light">225</b>
+            </div>
+          </div>
+          <button class="btn btn-block btn-outline-danger btn-vote">
+            <i class="fi fi-arrow-down"></i>
+          </button>
+        </div>
+        <div class="bg-info order-1 order-md-2 col-12 col-md-4 px-0 img-fluid-post-crop-container">
+          <img src="http://via.placeholder.com/350x250/0A4457/28a745" alt="A random image" class="img-fluid-post">
+        </div>
+        <div class="d-flex flex-column justify-content-between bg-dark order-2 col-12 col-md-6 order-md-3 p-2">
+          <div class="d-flex flex-column justify-content-start align-items-start">
+            <h5 class="card-title">
+              <a href="#" class="text-community-header">TypeScript is an awesome language. Here is the proof</a>
+            </h5>
+            <div class="d-flex flex-row justify-content-start mb-2">
+              <span class="text-card-vote-by text-muted">25 Minutes ago by&nbsp;</span>
+              <a href="#" class="text-card-vote-by text-light">pojntfx</a>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-between justify-content-md-end">
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Comments</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Share</button>
+            <button class="btn btn-md btn-outline-success mr-1 btn-card-vote-action">Cite</button>
+            <div class="btn-group ml-md-auto">
+              <button type="button" class="btn btn-md btn-outline-success btn-card-vote-action btn-card-vote-more" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fi fi-more-v-a"></i>
+              </button>
+              <div class="dropdown-menu bg-dark-navbar-right">
+                <a class="dropdown-item link-light" href="#">Bookmark</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item link-light" href="#">Hide</a>
+                <a class="dropdown-item link-light" href="#">Report</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="d-flex align-items-center justify-content-center mb-2">
+    <button class="btn btn-outline-success mr-2 d-flex align-items-center" disabled>
+      <i class="fi fi-angle-left"></i>&nbsp;&nbsp;Newer page
+    </button>
+    <button class="btn btn-outline-success d-flex align-items-center">
+      Older page&nbsp;&nbsp;
+      <i class="fi fi-angle-right"></i>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <div class="container-fluid bg-dark py-3 d-flex">
+    <div class="text-muted mr-auto">(c) 2018 The Illugraph Community</div>
+    <div class="text-muted ml-auto">
+      <a href="#" class="text-light link-light">Source code</a>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
