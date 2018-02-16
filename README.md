@@ -31,7 +31,7 @@ yarn mockups:serve
 
 ## Screenshots
 
-> Below are the screenshots of the "static_mockups" (currently master) branch. These may be outdated.
+> Below are the screenshots of the "static_mockups" branch. These may be outdated.
 
 ### A community in light mode
 
