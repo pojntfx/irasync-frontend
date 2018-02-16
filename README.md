@@ -1,37 +1,64 @@
 # irasync-frontend-web
-> An Irasync frontend implemented as a SPA based on Angular, Apollo Client and ng-bootstrap.
 
+> An Irasync frontend implemented as a SPA based on Angular, Apollo Client and ng-bootstrap.
 > Irasync is still evaluating and testing different stacks! Check out the different branches of this repo to try out the experiments.
+> Node >= 9, npm and yarn should be installed using your OS's package manager before continuing.
 
 ## Build Setup
 
-``` bash
-# install dependencies with npm (run as root):
-npm install -g live-server
+```bash
+# install dependencies
+yarn install
 
-# serve with hot reload at localhost:8080 using the live-server package:
-live-server .
+# serve with hot reloading at localhost:4200
+yarn start
+
+# lint the code (refer to the angular docs if you want to use this in your IDE)
+yarn lint
+
+# compile typescript
+yarn build
+
+# serve the docs at localhost:8080
+yarn docs:serve
+
+# update the docs after changes
+yarn docs:update
+
+# serve the static mockups (point your browser to http:localhost:8080/c/cyberpunk.html or http:localhost:8080/c/cyberpunk-dark.html to look at the styling)
+yarn mockups:serve
 ```
 
 ## Screenshots
+
 > Below are the screenshots of the "static_mockups" (currently master) branch. These may be outdated.
 
 ### A community in light mode
 
 #### Initial view on desktop
+
 ![A screenshot of a community in light mode on desktop](screenshots/screenshot_c_cyberpunk_light_lg_top.jpg)
+
 #### Scrolled down view on desktop
+
 ![A screenshot of a community in light mode on desktop, scrolled down](screenshots/screenshot_c_cyberpunk_light_lg_bottom.png)
+
 #### Initial view on mobile
+
 ![A screenshot of a community in light mode on mobile](screenshots/screenshot_c_cyberpunk_light_sm.png)
 
 ### A community in dark mode
-#### Initial view on desktop
+
+#### Initial view on desktop (dark mode)
+
 ![A screenshot of a community in dark mode on desktop](screenshots/screenshot_c_cyberpunk_dark_lg_top.jpg)
+
 #### Scrolled down view on mobile
+
 ![A screenshot of a community in dark mode on mobile](screenshots/screenshot_c_cyberpunk_dark_sm_bottom.png)
 
 ### The home page (Older, more minimal version)
+
 ![A screenshot of the home page in light mode on desktop](screenshots/screenshot_home_light_lg.png)
 
 ## License
