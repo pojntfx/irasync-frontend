@@ -8,7 +8,7 @@
 
 ```bash
 # install dependencies
-yarn install
+npm install
 
 # serve with hot reloading at localhost:4200
 yarn start
@@ -19,11 +19,11 @@ yarn lint
 # compile typescript
 yarn build
 
+# update/generate the docs after changes (docs are not included so your have to run this command at least once)
+yarn docs:update
+
 # serve the docs at localhost:8080
 yarn docs:serve
-
-# update the docs after changes
-yarn docs:update
 
 # serve the static mockups (point your browser to http:localhost:8080/c/cyberpunk.html or http:localhost:8080/c/cyberpunk-dark.html to look at the styling)
 yarn mockups:serve
