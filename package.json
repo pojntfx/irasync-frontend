@@ -1,7 +1,7 @@
 {
   "name": "irasync-frontend-web",
   "version": "0.0.1-alpha",
-  "description": "An Irasync GraphQL API backend implemented using Prisma.",
+  "description": " An Irasync frontend implemented as a SPA based on Angular, Apollo Client and ng-bootstrap.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/irasync/irasync-frontend-web.git"
