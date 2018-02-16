@@ -1,7 +1,18 @@
 {
   "name": "irasync-frontend-web",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "0.0.1-alpha",
+  "description": "An Irasync GraphQL API backend implemented using Prisma.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irasync/irasync-frontend-web.git"
+  },
+  "author": "Felix Pojtinger",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/irasync/irasync-frontend-web/issues"
+  },
+  "homepage": "https://github.com/irasync/irasync-frontend-web#readme",
+  "main": "src/main.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,7 +24,6 @@
     "docs:serve": "live-server docs/",
     "mockups:serve": "live-server mockups/"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
