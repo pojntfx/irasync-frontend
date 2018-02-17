@@ -1,0 +1,59 @@
+<ng-template #userMenu>
+  <!-- Quick actions -->
+  <div class="d-flex row align-items-center mt-1">
+    <div class="col-12 col-sm mr-auto d-flex justify-content-center justify-content-sm-start mb-2">
+      <b>Felicitas Pojtinger</b>
+    </div>
+    <div class="col-12 col-sm ml-auto d-flex justify-content-between justify-content-sm-end mt-1 mt-sm-0 mb-2">
+      <button class="btn btn-light mr-2">
+        <i class="ion ion-bookmark"></i>
+      </button>
+      <button class="btn btn-light btn-email mr-2">
+        <i class="ion ion-android-mail"></i>
+      </button>
+      <button class="btn btn-light">
+        <i class="ion ion-android-options"></i>
+      </button>
+    </div>
+  </div>
+  <div class="dropdown-divider mb-3"></div>
+  <!-- Notifications -->
+  <ul class="list-group">
+    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center px-3">
+      <i class="ion ion-heart text-muted mr-2"></i>
+      <b class="text-muted mr-2">yarkey</b>
+      <span class="text-link">Wohoo! I love it!</span>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center px-3">
+      <i class="ion ion-reply text-muted mr-2"></i>
+      <b class="text-muted mr-2">iddud</b>
+      This is great!
+    </a>
+    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center px-3">
+      <i class="ion ion-android-sunny text-muted mr-2"></i>
+      Earned "First Emoji"!
+    </a>
+    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center px-3">
+      <i class="ion ion-chevron-up text-muted mr-2"></i>
+      <b class="text-muted mr-2">io</b>
+      Lorem ipsum dolor sit amet
+    </a>
+    <button class="list-group-item list-group-item-action d-flex justify-content-center align-items-center" style="cursor: pointer;">
+      <i class="ion ion-chevron-down"></i>
+    </button>
+  </ul>
+  <div class="dropdown-divider mt-3"></div>
+  <!-- Logout button -->
+  <div class="d-flex justify-content-end align-items-center mb-1 mt-3">
+    <button class="btn btn-light">
+      Log Out
+      <i class="ml-2 ion ion-log-out"></i>
+    </button>
+  </div>
+</ng-template>
+
+<!-- Toggle button -->
+<button placement="bottom-right" type="button" container="body" class="btn btn-light ml-1" [ngbPopover]="userMenu">
+  <i class="ion ion-person ml-sm-0 mr-sm-2"></i>
+  <span class="d-none d-sm-inline-block">Profile</span>
+</button>

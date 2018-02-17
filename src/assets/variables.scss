@@ -3,3 +3,12 @@
 // Import BEFORE Variable adjustments but AFTER Variable overrides
 @import "~bootstrap/scss/bootstrap.scss";
 // Use variables here
+// A button that is muted by default, but which's text gets darker when hovered
+// Not used for better maintainability
+// .btn-muted-hover {
+//   color: $gray-600 !important;
+// }
+
+// .btn-muted-hover:hover {
+//   color: $dark !important;
+// }

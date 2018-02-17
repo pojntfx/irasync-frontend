@@ -1,0 +1,4 @@
+// Remove the dropdown toggle indicator
+.dropdown-toggle::after {
+  display: none;
+}

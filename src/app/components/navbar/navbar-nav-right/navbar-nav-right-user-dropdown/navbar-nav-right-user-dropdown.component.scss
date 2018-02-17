@@ -1,0 +1,19 @@
+// Remove the dropdown toggle indicator
+.dropdown-toggle::after {
+  display: none;
+}
+
+// Prevent the dropdown menu from getting really small
+.dropdown-menu-profile {
+  min-width: 320px;
+}
+
+
+@media (max-width: 575.98px) {
+  // Make the email button a block button when on mobile
+  .btn-email {
+    width: 100%;
+  }
+}
+
+// See common.scss for styling of the arrow of a popover!

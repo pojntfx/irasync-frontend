@@ -1,0 +1,63 @@
+<div class="card mb-3">
+  <!--  md = mdAndUp, p-2 = pa-2 -->
+  <div class="d-flex flex-column flex-md-row card-post-overview">
+    <div class="d-flex flex-row flex-md-column justify-content-between align-items-md-center order-3 order-md-1 col-12 col-md-2 pb-2 px-2 p-md-2 bg-light">
+      <button class="btn btn-block btn-outline-success btn-vote">
+        <i class="ion ion-chevron-up"></i>
+      </button>
+      <div class="text-votes d-flex justify-content-center">
+        <div class="align-self-center mx-3 mx-md-0">
+          <b>225</b>
+        </div>
+      </div>
+      <button class="btn btn-block btn-outline-danger btn-vote">
+        <i class="ion ion-chevron-down"></i>
+      </button>
+    </div>
+    <div class="bg-info order-1 order-md-2 col-12 col-md-4 px-0 img-fluid-post-crop-container">
+      <img src="http://via.placeholder.com/350x250" alt="A random image" class="img-fluid-post">
+    </div>
+    <div class="d-flex flex-column justify-content-between bg-light order-2 col-12 col-md-6 order-md-3 p-2">
+      <div class="d-flex flex-column justify-content-start align-items-start">
+        <h5 class="card-title">
+          <a href="#" class="text-dark">TypeScript is an awesome language. Here is the proof</a>
+        </h5>
+        <div class="d-flex flex-row justify-content-start mb-2">
+          <span class="text-card-vote-by text-muted">25 Minutes ago by&nbsp;</span>
+          <a href="#" class="text-card-vote-by text-dark">pojntfx</a>
+        </div>
+      </div>
+      <div class="d-flex flex-row flex-wrap flex-sm-nowrap justify-content-between justify-content-md-end mb-1 mb-md-0 card-options">
+        <button class="btn btn-light ml-1">
+          <i class="ion ion-chatboxes ml-sm-0 mr-sm-2 d-none d-sm-inline-block"></i>
+          <span>Comments</span>
+        </button>
+        <button class="btn btn-light ml-1">
+          <i class="ion ion-quote ml-sm-0 mr-sm-2 d-none d-sm-inline-block"></i>
+          <span>Cite</span>
+        </button>
+        <button class="btn btn-light ml-1">
+          <i class="ion ion-android-share-alt ml-sm-0 mr-sm-2 d-none d-sm-inline-block"></i>
+          <span>Share</span>
+        </button>
+        <ng-template #postMoreOptions>
+          <ul class="list-group list-post-more-options">
+            <button class="list-group-item list-group-item-action d-flex align-items-center px-3">
+              Bookmark
+            </button>
+            <div class="dropdown-divider"></div>
+            <button class="list-group-item list-group-item-action d-flex align-items-center px-3">
+              Hide
+            </button>
+            <button class="list-group-item list-group-item-action d-flex align-items-center px-3">
+              Report
+            </button>
+          </ul>
+        </ng-template>
+        <button placement="top-right" class="d-inline-block ml-md-auto btn btn-light ml-1 card-more-options" type="button" [ngbPopover]="postMoreOptions">
+          <i class="ion ion-android-more-vertical"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
