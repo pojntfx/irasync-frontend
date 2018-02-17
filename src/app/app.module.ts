@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
@@ -23,6 +24,26 @@ import { FooterRightComponent } from './components/navbar/footer/footer-right/fo
 import { ContentCommunityComponent } from './components/content/content-community/content-community.component';
 import { CardPostFeedComponent } from './components/card/card-post-feed/card-post-feed.component';
 import { NavbarNavRightUserDropdownComponent } from './components/navbar/navbar-nav-right/navbar-nav-right-user-dropdown/navbar-nav-right-user-dropdown.component';
+import { ContentPersonComponent } from './content/content-person/content-person.component';
+
+const appRoutes: Routes = [
+  // { path: 'crisis-center', component: CrisisListComponent },
+  // { path: 'hero/:id', component: HeroDetailComponent },
+  {
+    path: 'c/:name',
+    component: ContentCommunityComponent,
+  },
+  {
+    path: 'p/:name',
+    component: ContentPersonComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/c/feed',
+    pathMatch: 'full',
+  },
+  // { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -40,8 +61,12 @@ import { NavbarNavRightUserDropdownComponent } from './components/navbar/navbar-
     ContentCommunityComponent,
     CardPostFeedComponent,
     NavbarNavRightUserDropdownComponent,
+    ContentPersonComponent,
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes
+    ),
     NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,

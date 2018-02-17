@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-content-community',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentCommunityComponent implements OnInit {
 
-  constructor() { }
+  private communityName: string;
+  private communitySubtitle: String = 'High Tech, Low Life';
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(
+      params => this.communityName = params.get('name')
+    );
   }
 
 }
