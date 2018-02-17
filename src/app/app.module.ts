@@ -10,10 +10,36 @@ import { environment } from '../environments/environment';
 
 // ng-bootstrap main module
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarNavLeftComponent } from './components/navbar/navbar-nav-left/navbar-nav-left.component';
+import { NavbarNavRightComponent } from './components/navbar/navbar-nav-right/navbar-nav-right.component';
+import { CommunityHeaderComponent } from './components/header/community-header/community-header.component';
+import { CommunityNavbarComponent } from './components/navbar/community-navbar/community-navbar.component';
+import { CommunityNavbarNavLeftComponent } from './components/navbar/community-navbar/community-navbar-nav-left/community-navbar-nav-left.component';
+import { CommunityNavbarNavRightComponent } from './components/navbar/community-navbar/community-navbar-nav-right/community-navbar-nav-right.component';
+import { FooterComponent } from './components/navbar/footer/footer.component';
+import { FooterLeftComponent } from './components/navbar/footer/footer-left/footer-left.component';
+import { FooterRightComponent } from './components/navbar/footer/footer-right/footer-right.component';
+import { ContentCommunityComponent } from './components/content/content-community/content-community.component';
+import { CardPostFeedComponent } from './components/card/card-post-feed/card-post-feed.component';
+import { NavbarNavRightUserDropdownComponent } from './components/navbar/navbar-nav-right/navbar-nav-right-user-dropdown/navbar-nav-right-user-dropdown.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    NavbarNavLeftComponent,
+    NavbarNavRightComponent,
+    CommunityHeaderComponent,
+    CommunityNavbarComponent,
+    CommunityNavbarNavLeftComponent,
+    CommunityNavbarNavRightComponent,
+    FooterComponent,
+    FooterLeftComponent,
+    FooterRightComponent,
+    ContentCommunityComponent,
+    CardPostFeedComponent,
+    NavbarNavRightUserDropdownComponent,
   ],
   imports: [
     NgbModule.forRoot(),
