@@ -5,8 +5,9 @@
     <!-- Navigation menu nav (to respect DRY) -->
     <isf-navigation-main-start></isf-navigation-main-start>
   </ng-template>
-  <button placement="bottom" type="button" container="body" class="d-inline-block d-sm-none btn btn-light ml-1" [ngbPopover]="navigationMenuMobile">
+  <button placement="bottom" type="button" container="body" class="d-inline-block d-md-none btn btn-light ml-1" [ngbPopover]="navigationMenuMobile">
     <i class="ion ion-grid ml-sm-0 mr-sm-2"></i>
+    <span class="d-none d-sm-inline-block">Browse</span>
   </button>
 
   <!-- Post button -->

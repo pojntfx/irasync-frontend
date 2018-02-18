@@ -52,8 +52,17 @@
   </div>
 </ng-template>
 
-<!-- Toggle button -->
-<button placement="bottom-right" type="button" container="body" class="btn btn-light ml-1" [ngbPopover]="userMenu">
+<!-- User menu toggle button, will be displayed if user is logged in -->
+<button *ngIf="userIsLoggedIn" placement="bottom-right" type="button" container="body" class="btn btn-light ml-1" [ngbPopover]="userMenu">
   <i class="ion ion-person ml-sm-0 mr-sm-2"></i>
   <span class="d-none d-sm-inline-block">Profile</span>
 </button>
+
+<!-- Signin link, will be displayed if user is currently not logged in -->
+
+<li *ngIf="!userIsLoggedIn" class="nav-item nav-item-sign-in ml-1">
+  <a class="nav-link" routerLink="/login" routerLinkActive="active">
+    <i class="ion ion-log-in ml-sm-0 mr-sm-2"></i>
+    <span class="d-none d-sm-inline-block">Sign in</span>
+  </a>
+</li>
