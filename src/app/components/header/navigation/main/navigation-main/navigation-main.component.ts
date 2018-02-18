@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 /**
- * The Navbar that contains the main navigation
+ * Wrapper that contains the main navigation
  */
 @Component({
   selector: 'isf-navigation-main',

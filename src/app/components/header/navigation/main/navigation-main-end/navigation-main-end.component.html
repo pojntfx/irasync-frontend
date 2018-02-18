@@ -1,14 +1,15 @@
 <ul class="navbar-nav">
 
-  <!-- Mobile Navigation Menu -->
+  <!-- Mobile navigation menu wrapper -->
   <ng-template #navigationMenuMobile>
+    <!-- Navigation menu nav (to respect DRY) -->
     <isf-navigation-main-start></isf-navigation-main-start>
   </ng-template>
   <button placement="bottom" type="button" container="body" class="d-inline-block d-sm-none btn btn-light ml-1" [ngbPopover]="navigationMenuMobile">
     <i class="ion ion-grid ml-sm-0 mr-sm-2"></i>
   </button>
 
-  <!-- Post Button -->
+  <!-- Post button -->
   <li class="nav-item">
     <button class="btn btn-light ml-1">
       <i class="ion ion-android-add ml-sm-0 mr-sm-2"></i>
@@ -16,7 +17,7 @@
     </button>
   </li>
 
-  <!-- User Menu -->
+  <!-- User menu -->
   <isf-navigation-main-end-menu-user></isf-navigation-main-end-menu-user>
 
 </ul>

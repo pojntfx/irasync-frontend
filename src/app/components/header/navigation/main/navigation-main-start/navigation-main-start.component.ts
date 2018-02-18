@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Global, main navigation thats common in nearly all views
+ */
 @Component({
   selector: 'isf-navigation-main-start',
   templateUrl: './navigation-main-start.component.html',
