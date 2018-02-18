@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 
+/**
+ * Root component that servers as a wrapper for everything (for now)
+ */
 @Component({
-  selector: 'app-root',
+  selector: 'isf-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
