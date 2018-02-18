@@ -1,0 +1,11 @@
+@media (max-width: 575.98px) {
+  // Make the header smaller on mobile devices
+  .display-community-header {
+    font-size: 2rem;
+  }
+}
+
+// If the title is really long, enable scrolling on smaller devices
+.jumbotron-community-header {
+  overflow-x: auto;
+}
