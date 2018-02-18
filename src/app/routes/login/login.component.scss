@@ -1,0 +1,61 @@
+// Make the form's width 100% on smaller devices but not to wide on desktop
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+// Prevent the inputs from glitching into one another
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem; // Add the padding to the labels with CSS variables
+  &>input,
+  &>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+  } // Enable the floating labels with absolute positioning
+  &>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    // Override default `<label>` margin
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+    // Make the label UX uniform with the rest of the UI's UX
+    cursor: text !important;
+  }
+  & input {
+    // Hide the placeholder, the label does that for us (otherwise they would overlap)
+    &::placeholder {
+      color: transparent;
+    }
+    // Adjust the label to accomodate for label if user started typing
+    &:not(:placeholder-shown) {
+      padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+      padding-bottom: calc(var(--input-padding-y) / 3);
+    }
+    // If no placeholder is shown (so the user must have started typing),
+    // move the label upwards (with the transisition from above)
+    &:not(:placeholder-shown)~label {
+      padding-top: calc(var(--input-padding-y) / 3);
+      padding-bottom: calc(var(--input-padding-y) / 3);
+      font-size: 12px;
+      color: #777;
+    }
+  }
+}
+
+// Make the active button look fancy to give it a bit of personality
+.btn-primary {
+  &,
+  &:active,
+  &:focus {
+    background: linear-gradient(90deg, #5ED37A, #0056B2 50%) !important;
+  }
+}

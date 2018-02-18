@@ -1,0 +1,66 @@
+<!-- Login/Signup form -->
+<form class="form-signin pb-0 pb-sm-3 mt-4 my-sm-5">
+
+  <!-- The logo and subtitle -->
+  <div class="text-center mb-4">
+    <img class="mb-4" src="/assets/logo-light.svg" alt="" width="70%">
+    <h6>The social network for democratic communities</h6>
+  </div>
+
+  <!-- If signing in: email or username field -->
+  <div class="form-label-group" *ngIf="signin">
+    <input type="text" id="inputEmailOrUsernameSignin" class="form-control" placeholder="Email address or username" required
+      autofocus>
+    <label for="inputEmailOrUsernameSignin">Email address or username</label>
+  </div>
+
+  <!-- If signing up: email field -->
+  <div class="form-label-group" *ngIf="!signin">
+    <input type="email" id="inputEmailSignup" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputEmailSignup">Email address</label>
+  </div>
+
+  <!-- If signing up: username field -->
+  <div class="form-label-group" *ngIf="!signin">
+    <input type="text" id="inputUsernameSignup" class="form-control" placeholder="Username" required>
+    <label for="inputUsernameSignup">Username</label>
+  </div>
+
+  <!-- For both: password field -->
+  <div class="form-label-group">
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <label for="inputPassword">Password</label>
+  </div>
+
+  <!-- Submit buttons -->
+  <div class="row">
+    <!-- Login button that gets displayed if user has not clicked signup yet -->
+    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin" (click)="login()">
+      <button class="btn btn-lg btn-secondary btn-block" type="submit">
+        <i class="ion ion-log-in ml-0 mr-2"></i>
+        <span>Sign in</span>
+      </button>
+    </div>
+    <!-- Back to login button that gets displayed if user has clicked on signup before -->
+    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-2 order-sm-2" *ngIf="!signin" (click)="activateLogin()">
+      <button class="btn btn-lg btn-secondary btn-block">
+        <i class="ion ion-ios-arrow-back ml-0 mr-2"></i>
+        <span>Back to login</span>
+      </button>
+    </div>
+    <!-- Signup button that gets displayed if user has not clicked signup yet -->
+    <div class="col-12 col-sm-6 pl-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin" (click)="activateSignup()">
+      <button class="btn btn-lg btn-primary btn-block">
+        <i class="ion ion-person-add ml-0 mr-2"></i>
+        <span>Sign up</span>
+      </button>
+    </div>
+    <!-- Signup button that gets displayed if user has clicked on signup before -->
+    <div class="col-12 col-sm-6 pl-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="!signin">
+      <button class="btn btn-lg btn-primary btn-block" (click)="signup()" type="submit">
+        <i class="ion ion-person-add ml-0 mr-2"></i>
+        <span>Sign up</span>
+      </button>
+    </div>
+  </div>
+</form>
