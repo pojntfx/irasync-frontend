@@ -14,7 +14,7 @@ export class CommunityComponent implements OnInit {
 
   // Mock data for the community's header
   private communityName: string;
-  private communitySubtitle: String = 'High Tech, Low Life';
+  private communitySubtitle: String = 'Enjoy the sunrise';
 
   constructor(private route: ActivatedRoute) { }
 

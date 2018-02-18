@@ -19,11 +19,13 @@
   top: calc((0.5rem) * -1);
 }
 
+// Remove the unnecessary border from the top of each popover's arrow (If popover-bottom)
 .card-more-options~ngb-popover-window .arrow {
   right: 0 !important;
   bottom: calc((0.5rem) * -1);
 }
 
+// Make it clear that the actions resemble buttons in lists
 .popover-body>isf-navbar-nav-left>.list-navigation-main>.list-group-item-action,
 .popover-body>.list-post-more-options>.list-group-item-action {
   border-radius: 0.3rem;

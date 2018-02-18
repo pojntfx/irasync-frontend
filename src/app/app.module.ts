@@ -30,7 +30,7 @@ import { FooterMainStartComponent } from './components/footer/footer-main/footer
 import { FooterMainEndComponent } from './components/footer/footer-main/footer-main-end/footer-main-end.component';
 import { NavigationMainEndMenuUserComponent } from './components/header/navigation/main/navigation-main-end/navigation-main-end-menu-user/navigation-main-end-menu-user.component';
 import { CardPostFeedComponent } from './components/content/card/card-post-feed/card-post-feed.component';
-
+import { LoginComponent } from './routes/login/login.component';
 
 const isfRoutes: Routes = [
   // A community
@@ -63,6 +63,15 @@ const isfRoutes: Routes = [
     path: 'user/:name',
     component: PersonComponent,
   },
+  // Login
+  {
+    path: 'l',
+    component: LoginComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   // Feed
   {
     path: '',
@@ -89,6 +98,7 @@ const isfRoutes: Routes = [
     FooterMainEndComponent,
     NavigationMainEndMenuUserComponent,
     CardPostFeedComponent,
+    LoginComponent,
   ],
   imports: [
     RouterModule.forRoot(
