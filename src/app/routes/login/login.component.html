@@ -35,22 +35,22 @@
   <!-- Submit buttons -->
   <div class="row">
     <!-- Login button that gets displayed if user has not clicked signup yet -->
-    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin" (click)="login()">
-      <button class="btn btn-lg btn-secondary btn-block" type="submit">
+    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin">
+      <button class="btn btn-lg btn-secondary btn-block" type="submit" (click)="login()">
         <i class="ion ion-log-in ml-0 mr-2"></i>
         <span>Sign in</span>
       </button>
     </div>
     <!-- Back to login button that gets displayed if user has clicked on signup before -->
-    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-2 order-sm-2" *ngIf="!signin" (click)="activateLogin()">
-      <button class="btn btn-lg btn-secondary btn-block">
+    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-2 order-sm-2" *ngIf="!signin">
+      <button class="btn btn-lg btn-secondary btn-block" (click)="activateLogin()">
         <i class="ion ion-ios-arrow-back ml-0 mr-2"></i>
         <span>Back to login</span>
       </button>
     </div>
     <!-- Signup button that gets displayed if user has not clicked signup yet -->
-    <div class="col-12 col-sm-6 pl-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin" (click)="activateSignup()">
-      <button class="btn btn-lg btn-primary btn-block">
+    <div class="col-12 col-sm-6 pl-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin">
+      <button class="btn btn-lg btn-primary btn-block" (click)="activateSignup()">
         <i class="ion ion-person-add ml-0 mr-2"></i>
         <span>Sign up</span>
       </button>
