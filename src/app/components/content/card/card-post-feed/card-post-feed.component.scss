@@ -1,0 +1,38 @@
+// Set the post's max height if on bigger devices
+@media screen and (min-width: 768px) {
+  .card-post-overview {
+    max-height: 140px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card-post-overview {
+    max-height: 150px;
+  }
+}
+
+// Set the post's card's minimum height
+.card-post-overview {
+  min-height: 140px;
+}
+
+// Prevent the image from glitching out on the right
+.img-fluid-post {
+  width: 100%;
+  height: auto;
+}
+
+// Prevent the card's image from glitching out on the bottom
+.img-fluid-post-crop-container {
+  overflow-y: hidden;
+}
+
+// Hide the dropdown bottom indicator (unneccessary since it's a menu button) in the card
+#dropdownCardMore::after {
+  display: none;
+}
+
+// Remove the border from the "more options" menu
+.list-post-more-options>.list-group-item-action {
+  border: 0;
+}
