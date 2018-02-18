@@ -59,6 +59,10 @@ const isfRoutes: Routes = [
     path: 'u/:name',
     component: PersonComponent,
   },
+  {
+    path: 'user/:name',
+    component: PersonComponent,
+  },
   // Feed
   {
     path: '',

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * User menu and, on mobile, navigation wrapper
+ */
 @Component({
   selector: 'isf-navigation-main-end',
   templateUrl: './navigation-main-end.component.html',

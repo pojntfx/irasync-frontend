@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Link to the source code
+ */
 @Component({
   selector: 'isf-footer-main-end',
   templateUrl: './footer-main-end.component.html',
