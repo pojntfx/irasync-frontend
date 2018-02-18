@@ -2,7 +2,7 @@
 
   <!-- Mobile Navigation Menu -->
   <ng-template #navigationMenuMobile>
-    <isf-navbar-nav-left></isf-navbar-nav-left>
+    <isf-navigation-main-start></isf-navigation-main-start>
   </ng-template>
   <button placement="bottom" type="button" container="body" class="d-inline-block d-sm-none btn btn-light ml-1" [ngbPopover]="navigationMenuMobile">
     <i class="ion ion-grid ml-sm-0 mr-sm-2"></i>
@@ -17,6 +17,6 @@
   </li>
 
   <!-- User Menu -->
-  <isf-navbar-nav-right-user-dropdown></isf-navbar-nav-right-user-dropdown>
+  <isf-navigation-main-end-menu-user></isf-navigation-main-end-menu-user>
 
 </ul>
