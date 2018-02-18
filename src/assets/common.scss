@@ -36,3 +36,11 @@
 .active-mobile {
   background: $list-group-hover-bg;
 }
+
+@media (max-width: 575.98px) {
+  // Make the nav item just as black as the rest of the buttons in the main navigation on mobile
+  // (It's got a button-like appearance there)
+  .nav-item-sign-in>a {
+    color: #212529 !important;
+  }
+}

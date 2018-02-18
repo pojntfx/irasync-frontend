@@ -11,6 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationMainEndMenuUserComponent implements OnInit {
 
+  // Whether the user is logged in (Whether the user menu or a signup/signin button should be displayed)
+  private userIsLoggedIn: Boolean = false;
+
   constructor() { }
 
   ngOnInit() {
