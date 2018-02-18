@@ -48,6 +48,10 @@
       font-size: 12px;
       color: #777;
     }
+    // Apply consistent styling
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(29, 135, 161, 0.5) !important;
+    }
   }
 }
 
@@ -58,4 +62,9 @@
   &:focus {
     background: linear-gradient(90deg, #5ED37A, #0056B2 50%) !important;
   }
+  &:active, &:focus {
+     box-shadow: 0 0 0 0.2rem #1d87a1 !important;
+
+  }
+  border-color: #1d7da1 !important;
 }
