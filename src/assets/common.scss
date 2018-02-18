@@ -31,3 +31,8 @@
   border-radius: 0.3rem;
   cursor: pointer;
 }
+
+// Add a slight highlight to the currently selected route
+.active-mobile {
+  background: $list-group-hover-bg;
+}
