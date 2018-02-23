@@ -1,5 +1,5 @@
-<!-- Login/Signup form -->
-<form class="form-signin pb-0 pb-sm-3 mt-4 my-sm-5">
+<!-- Signup form -->
+<form #signupForm="ngForm" (ngSubmit)="logSignupData(signupForm)" *ngIf="signupActivated" class="form-signin pb-0 pb-sm-3 mt-4 my-3 my-sm-5">
 
   <!-- The logo and subtitle -->
   <div class="text-center mb-4">
@@ -7,59 +7,90 @@
     <h6>The social network for democratic communities</h6>
   </div>
 
-  <!-- If signing in: email or username field -->
-  <div class="form-label-group" *ngIf="signin">
-    <input (ngModel)="signinInput.email" type="text" id="inputEmailOrUsernameSignin" class="form-control" placeholder="Email address or username" required
-      autofocus>
-    <label for="inputEmailOrUsernameSignin">Email address or username</label>
+  <!-- Email -->
+  <div class="form-group form-label-group">
+    <input #signupEmailInput="ngModel" type="email" name="email" id="email" class="form-control" ngModel required email placeholder="Email address">
+    <label for="email">Email address</label>
+    <div *ngIf="signupEmailInput.touched && !signupEmailInput.valid" class="alert alert-danger mt-3" role="alert">
+      <div *ngIf="signupEmailInput.errors.required">Please enter an email address.</div>
+      <div *ngIf="signupEmailInput.errors.email && !signupEmailInput.errors.required">"{{ signupEmailInput.value }}" is not a valid email address.</div>
+    </div>
   </div>
-
-  <!-- If signing up: email field -->
-  <div class="form-label-group" *ngIf="!signin">
-    <input type="email" id="inputEmailSignup" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputEmailSignup">Email address</label>
+  <!-- Username -->
+  <div class="form-group form-label-group">
+    <input #signupUsernameInput="ngModel" type="text" name="userName" id="userName" class="form-control" ngModel required placeholder="Username">
+    <label for="userName">Username</label>
+    <div *ngIf="signupUsernameInput.touched && !signupUsernameInput.valid" class="alert alert-danger mt-3" role="alert">
+      <div *ngIf="signupUsernameInput.errors.required">Please enter a username.</div>
+    </div>
   </div>
-
-  <!-- If signing up: username field -->
-  <div class="form-label-group" *ngIf="!signin">
-    <input (ngModel)="signinInput.name"  type="text" id="inputUsernameSignup" class="form-control" placeholder="Username" required>
-    <label for="inputUsernameSignup">Username</label>
+  <!-- Password -->
+  <div class="form-group form-label-group">
+    <input #signupPasswordInput="ngModel" type="password" name="password" id="password" class="form-control" minlength="8" ngModel
+      placeholder="Password" required>
+    <label for="password">Password</label>
+    <div *ngIf="signupPasswordInput.touched && !signupPasswordInput.valid" class="alert alert-danger mt-3" role="alert">
+      <div *ngIf="signupPasswordInput.errors.required">Please enter a password.</div>
+      <div *ngIf="signupPasswordInput.errors.minlength">Your password must be at least {{ signupPasswordInput.errors.minlength.requiredLength }} characters long.</div>
+    </div>
   </div>
-
-  <!-- For both: password field -->
-  <div class="form-label-group">
-    <input (ngModel)="signinInput.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <label for="inputPassword">Password</label>
-  </div>
-
-  <!-- Submit buttons -->
   <div class="row">
-    <!-- Login button that gets displayed if user has not clicked signup yet -->
-    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin">
-      <button class="btn btn-lg btn-secondary btn-block" type="submit" (click)="login()">
+    <!-- Switch to sign in button -->
+    <div class="col-12 col-sm-6 d-flex justify-content-end pr-sm-2 order-2 order-sm-1">
+      <button class="btn btn-secondary btn-block" (click)="activateLogin()" type="button">
         <i class="ion ion-log-in ml-0 mr-2"></i>
         <span>Sign in</span>
       </button>
     </div>
-    <!-- Back to login button that gets displayed if user has clicked on signup before -->
-    <div class="col-12 col-sm-6 pr-sm-2 mb-3 mb-sm-0 order-2 order-sm-2" *ngIf="!signin">
-      <button class="btn btn-lg btn-secondary btn-block" (click)="activateLogin()">
+    <!-- Submit button -->
+    <div class="col-12 col-sm-6 justify-content-start pl-sm-2 order-1 order-sm-2 mb-3 mb-sm-0">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="signupForm.form.invalid">
+        <i class="ion ion-person-add ml-0 mr-2"></i>
+        <span>Sign up</span>
+      </button>
+    </div>
+  </div>
+</form>
+
+<!-- Signin form -->
+<form #signinForm="ngForm" (ngSubmit)="logSignupData(signinForm)" *ngIf="!signupActivated" class="form-signin pb-0 pb-sm-3 mt-4 my-3 my-sm-5">
+
+  <!-- The logo and subtitle -->
+  <div class="text-center mb-4">
+    <img class="mb-4" src="/assets/logo-light-gradient-green-blue.svg" alt="Irasync Logo, colored variant" width="70%">
+    <h6>The social network for democratic communities</h6>
+  </div>
+
+  <!-- Username or Password-->
+  <div class="form-label-group form-group">
+    <input #signinUsernameInput="ngModel" type="text" name="userName" id="userName" class="form-control" ngModel required placeholder="Email address or username">
+    <label for="userName">Email address or username</label>
+    <div *ngIf="signinUsernameInput.touched && !signinUsernameInput.valid" class="alert alert-danger mt-3" role="alert">
+      <div *ngIf="signinUsernameInput.errors.required">Please enter your username or email address.</div>
+    </div>
+  </div>
+  <!-- Password -->
+  <div class="form-group form-label-group">
+    <input #signinPasswordInput="ngModel" type="password" name="password" id="password" class="form-control" ngModel required
+      placeholder="Password">
+    <label for="password">Password</label>
+    <div *ngIf="signinPasswordInput.touched && !signinPasswordInput.valid" class="alert alert-danger mt-3" role="alert">
+      <div *ngIf="signinPasswordInput.errors.required">Please enter your password.</div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Switch to sign up button -->
+    <div class="col-12 col-sm-6 d-flex justify-content-end pr-sm-2 order-2 order-sm-1">
+      <button class="btn btn-secondary btn-block" (click)="activateSignup()" type="button">
         <i class="ion ion-ios-arrow-back ml-0 mr-2"></i>
-        <span>Back to login</span>
+        <span>Back to sign up</span>
       </button>
     </div>
-    <!-- Signup button that gets displayed if user has not clicked signup yet -->
-    <div class="col-12 col-sm-6 pl-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="signin">
-      <button class="btn btn-lg btn-primary btn-block" (click)="activateSignup()">
-        <i class="ion ion-person-add ml-0 mr-2"></i>
-        <span>Sign up</span>
-      </button>
-    </div>
-    <!-- Signup button that gets displayed if user has clicked on signup before -->
-    <div class="col-12 col-sm-6 pl-sm-2 mb-3 mb-sm-0 order-1 order-sm-2" *ngIf="!signin">
-      <button class="btn btn-lg btn-primary btn-block" (click)="signup()" type="submit">
-        <i class="ion ion-person-add ml-0 mr-2"></i>
-        <span>Sign up</span>
+    <!-- Submit button -->
+    <div class="col-12 col-sm-6 justify-content-start pl-sm-2 mb-3 mb-sm-0 order-1 order-sm-2">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="signinForm.form.invalid">
+        <i class="ion ion-log-in ml-0 mr-2"></i>
+        <span>Sign in</span>
       </button>
     </div>
   </div>

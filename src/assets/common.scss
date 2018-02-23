@@ -4,43 +4,49 @@
 // Use Bootstrap (Everything)
 @import "~bootstrap/scss/bootstrap.scss";
 @media (max-width: 575.98px) {
-  // Put the dropdown menu's arrow on top into the right spot when on mobile
-  .popover .arrow {
-    right: 0.25em !important;
-  } // Make the profile menu a bit smaller to prevent glitches
-  .popover-body {
-    max-width: 90vw;
-  }
+    // Put the dropdown menu's arrow on top into the right spot when on mobile
+    .popover .arrow {
+        right: 0.25em !important;
+    } // Make the profile menu a bit smaller to prevent glitches
+    .popover-body {
+        max-width: 90vw;
+    }
 }
 
 // Remove the unnecessary border from the bottom of each popover's arrow
 .bs-popover-bottom .arrow,
 .bs-popover-auto[x-placement^="bottom"] .arrow {
-  top: calc((0.5rem) * -1);
+    top: calc((0.5rem) * -1);
 }
 
 // Remove the unnecessary border from the top of each popover's arrow (If popover-bottom)
 .card-more-options~ngb-popover-window .arrow {
-  right: 0 !important;
-  bottom: calc((0.5rem) * -1);
+    right: 0 !important;
+    bottom: calc((0.5rem) * -1);
 }
 
 // Make it clear that the actions resemble buttons in lists
 .popover-body>isf-navbar-nav-left>.list-navigation-main>.list-group-item-action,
 .popover-body>.list-post-more-options>.list-group-item-action {
-  border-radius: 0.3rem;
-  cursor: pointer;
+    border-radius: 0.3rem;
+    cursor: pointer;
 }
 
 // Add a slight highlight to the currently selected route
 .active-mobile {
-  background: $list-group-hover-bg;
+    background: $list-group-hover-bg;
 }
 
 @media (max-width: 575.98px) {
-  // Make the nav item just as black as the rest of the buttons in the main navigation on mobile
-  // (It's got a button-like appearance there)
-  .nav-item-sign-in>a {
-    color: #212529 !important;
-  }
+    // Make the nav item just as black as the rest of the buttons in the main navigation on mobile
+    // (It's got a button-like appearance there)
+    .nav-item-sign-in>a {
+        color: #212529 !important;
+    }
+}
+
+// Enable red border for invalid forms
+.form-control.ng-touched.ng-invalid,
+.form-label-group.ng-touched.ng-invalid {
+    @extend .is-invalid;
 }
