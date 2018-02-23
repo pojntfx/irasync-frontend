@@ -9,7 +9,7 @@
 
   <!-- If signing in: email or username field -->
   <div class="form-label-group" *ngIf="signin">
-    <input type="text" id="inputEmailOrUsernameSignin" class="form-control" placeholder="Email address or username" required
+    <input (ngModel)="signinInput.email" type="text" id="inputEmailOrUsernameSignin" class="form-control" placeholder="Email address or username" required
       autofocus>
     <label for="inputEmailOrUsernameSignin">Email address or username</label>
   </div>
@@ -22,13 +22,13 @@
 
   <!-- If signing up: username field -->
   <div class="form-label-group" *ngIf="!signin">
-    <input type="text" id="inputUsernameSignup" class="form-control" placeholder="Username" required>
+    <input (ngModel)="signinInput.name"  type="text" id="inputUsernameSignup" class="form-control" placeholder="Username" required>
     <label for="inputUsernameSignup">Username</label>
   </div>
 
   <!-- For both: password field -->
   <div class="form-label-group">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input (ngModel)="signinInput.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <label for="inputPassword">Password</label>
   </div>
 
