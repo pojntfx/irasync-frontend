@@ -50,48 +50,48 @@ const isfRoutes: Routes = [
   // A community
   {
     path: 'c/:name',
-    component: CommunityComponent,
+    component: CommunityComponent
   },
   {
     path: 'community/:name',
-    component: CommunityComponent,
+    component: CommunityComponent
   },
   {
     path: 'r/:name',
-    component: CommunityComponent,
+    component: CommunityComponent
   },
   // A person
   {
     path: 'p/:name',
-    component: PersonComponent,
+    component: PersonComponent
   },
   {
     path: 'person/:name',
-    component: PersonComponent,
+    component: PersonComponent
   },
   {
     path: 'u/:name',
-    component: PersonComponent,
+    component: PersonComponent
   },
   {
     path: 'user/:name',
-    component: PersonComponent,
+    component: PersonComponent
   },
   // Login
   {
     path: 'l',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   // Feed
   {
     path: '',
     redirectTo: '/c/feed',
-    pathMatch: 'full',
-  },
+    pathMatch: 'full'
+  }
   // { path: '**', component: PageNotFoundComponent } // Will be added in the future
 ];
 
@@ -112,34 +112,35 @@ const isfRoutes: Routes = [
     FooterMainEndComponent,
     NavigationMainEndMenuUserComponent,
     CardPostFeedComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
-    RouterModule.forRoot(
-      isfRoutes
-    ),
+    RouterModule.forRoot(isfRoutes),
     NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    }),
     // Apollo Client
     HttpClientModule,
     ApolloModule,
     HttpLinkModule,
     // User input
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(
-    apollo: Apollo,
-    httpLink: HttpLink
-  ) {
+  constructor(apollo: Apollo, httpLink: HttpLink) {
+    const link = httpLink.create({
+      uri: 'http://localhost:4000',
+      withCredentials: true
+    });
     apollo.create({
       // Connect to the API endpoint (the one for prisma, not the db!)
-      link: httpLink.create({ uri: 'http://localhost:4000' }),
+      link,
       cache: new InMemoryCache()
     });
   }

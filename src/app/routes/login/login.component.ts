@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy } from '@angular/core';
 // Apollo client
-import { Apollo } from "apollo-angular";
-import gql from "graphql-tag";
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 // Router for redirect after signup
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 // User input
-import { FormBuilder, FormGroup, Validators, NgForm } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 
 /**
  * The required input for a user in order to signin
@@ -20,16 +20,15 @@ interface ISigninInput {
  * Enables login. Also has a style loader that applies global css
  */
 @Component({
-  selector: "isf-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  selector: 'isf-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private signin: Boolean = true;
   private customStyles: Node;
 
   private signupActivated: Boolean = true;
-  private signupInput: ISigninInput;
   // Mutation to signup the user
   private signupMutation: string = gql`
     mutation signup($name: String!, $email: String!, $password: String!) {
@@ -44,14 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @param apollo Inject Apollo to use GraphQl queries to sign up
    * @param router To enable navigating to the feed after signup
    */
-  constructor(private apollo: Apollo, private router: Router) {
-    // Mock the signup data
-    this.signupInput = {
-      name: "asdf",
-      email: "asdf@asdf.com",
-      password: "asdf"
-    };
-  }
+  constructor(private apollo: Apollo, private router: Router) { }
 
   /**
    * Add a custom stylesheet with global scope to style the template in order to center the login form
@@ -75,7 +67,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
   private logSignupData(signupForm: NgForm) {
     // Log test message
-    for (let field of Object.keys(signupForm.value)) {
+    for (const field of Object.keys(signupForm.value)) {
       console.log(field);
     }
   }
@@ -112,7 +104,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     `;
     // The element wrapper
-    const styleNode = document.createElement("style");
+    const styleNode = document.createElement('style');
     // Add the css to the style wrapper
     styleNode.appendChild(document.createTextNode(loginStyleCss));
     return styleNode;
@@ -137,31 +129,27 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * Sign up the user with the provided data
    */
-  private signup() {
-    console.log("Signing up ...");
+  private signup(signupForm: NgForm) {
+    console.log('Signing up ...');
     // Sign up the user
     this.apollo
       .mutate({
         mutation: this.signupMutation,
-        variables: {
-          name: "asdf5",
-          email: "test7@example3.com",
-          password: "asdf"
+        variables: <ISigninInput>{
+          name: signupForm.value.userName,
+          email: signupForm.value.email,
+          password: signupForm.value.password
         }
         // Get back the token, handle errors
       })
       .subscribe(
         ({ data }) => {
-          console.log("Received data");
-          this.router.navigate([""]);
+          console.log('Received data:', data);
+          this.router.navigate(['']);
         },
         error => {
-          console.log("Failed to sign up.");
+          console.log('Failed to sign up.');
         }
       );
-    console.log(
-      "Provided packet:",
-      JSON.stringify(this.signupInput).toString()
-    );
   }
 }
