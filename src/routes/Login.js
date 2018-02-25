@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // Components
-import Form from "../components/login/Form";
+import { Form } from "../components/login/Form";
 
 export default class Login extends Component {
   state = {

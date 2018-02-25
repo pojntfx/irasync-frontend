@@ -8,7 +8,13 @@ export default class SigninForm extends Component {
   onSubmit = event => {
     // Don't reload
     event.preventDefault();
-    this.props.onSignin();
+    // Get the variables from the form and pass it
+    const email = this.emailInput.value;
+    const password = this.passwordInput.value;
+    this.props.onSignin({ email, password });
+    // Clear the form
+    this.emailInput.value = "";
+    this.passwordInput.value = "";
   };
 
   render() {
@@ -18,8 +24,18 @@ export default class SigninForm extends Component {
         <p>Signin Form</p>
 
         <form onSubmit={onSubmit}>
-          <input type="text" placeholder="Username or Email" />
-          <input type="password" placeholder="Password" />
+          <input
+            type="email"
+            placeholder="Email"
+            ref={emailInput => (this.emailInput = emailInput)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            ref={passwordInput => (this.passwordInput = passwordInput)}
+            required
+          />
           <button type="submit">Sign in</button>
         </form>
 

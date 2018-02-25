@@ -8,7 +8,8 @@ import "semantic-ui-css/semantic.min.css";
 // Apollo client
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
-import { HttpLink } from "apollo-link-http";
+import { createHttpLink } from "apollo-link-http";
+import { setContext } from "apollo-link-context";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 // React router
@@ -18,12 +19,26 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Login from "./routes/Login";
 
-// Create Apollo Client
+// Authorization header (token will be pulled from localStorage every time a request is sent)
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ""
+    }
+  };
+});
+
+// HttpLink
+const httpLink = createHttpLink({
+  uri: "http://localhost:4000",
+  credentials: "include"
+});
+
+// Create Apollo client
 const client = new ApolloClient({
-  link: new HttpLink({
-    uri: "http://localhost:4000",
-    credentials: "include"
-  }),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache()
 });
 
