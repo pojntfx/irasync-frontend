@@ -18,17 +18,26 @@ import Login from "./routes/Login";
 
 // Components
 import Navigation from "./components/Navigation";
+import HeaderCommunity from "./components/HeaderCommunity";
+import NavigationCommunity from './components/NavigationCommunity'
 import Footer from "./components/Footer";
 
+// Create Apollo Client
+const client = new ApolloClient({ uri: "http://localhost:4000/" });
+
 render(
-  <Router>
-    <div>
-      <Route path="/" component={Navigation} />
-      <Route exact path="/" component={Feed} />
-      <Route exact path="/login" component={Login} />
-      <Route path="/" component={Footer} />
-    </div>
-  </Router>,
+  <ApolloProvider client={client}>
+    <Router>
+      <div>
+        <Route path="/" component={Navigation} />
+        <Route path="/" component={HeaderCommunity} />
+        <Route path="/" component={NavigationCommunity}/>
+        <Route exact path="/" component={Feed} />
+        <Route exact path="/login" component={Login} />
+        <Route path="/" component={Footer} />
+      </div>
+    </Router>
+  </ApolloProvider>,
   document.getElementById("root")
 );
 
