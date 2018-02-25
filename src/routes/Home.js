@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 
+// Router
+import { Link } from "react-router-dom";
+
+// Components
 import { Feed } from "../components/home/Feed";
 
 export default class Home extends Component {
   render() {
-    return <Feed />;
+    return (
+      <div>
+        <Link to="/login">Login</Link>
+        <Feed />
+      </div>
+    );
   }
 }
