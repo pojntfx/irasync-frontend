@@ -1,0 +1,27 @@
+{
+  "name": "irasync-frontend-web-react",
+  "version": "0.0.1-alpha",
+  "private": true,
+  "dependencies": {
+    "apollo-boost": "^0.1.1",
+    "graphql": "^0.13.1",
+    "react": "^16.2.0",
+    "react-apollo": "^2.1.0-beta.2",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "semantic-ui-react": "^0.78.2",
+    "styled-components": "^3.1.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "Felicitas Pojtinger",
+  "license": "GPL-3.0"
+}
