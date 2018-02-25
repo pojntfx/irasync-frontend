@@ -10,9 +10,10 @@ export default class PostsList extends Component {
       <div>
         {posts.map(post => {
           return (
-            <Card key={post.title}>
+            <Card key={post.title} fluid>
               <Card.Header>{post.title}</Card.Header>
-              <Card.Meta>{post.votes} votes</Card.Meta>
+              <Card.Meta>By {post.author.name}</Card.Meta>
+              <Card.Description>{post.text}</Card.Description>
             </Card>
           );
         })}
