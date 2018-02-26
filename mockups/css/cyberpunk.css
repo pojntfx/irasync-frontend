@@ -1,0 +1,160 @@
+/* Prevent search bar glitching on small screens */
+
+.form-navbar-search {
+  max-width: 180px;
+}
+
+/* Make the dropdowns and buttons in the navbar max width */
+
+.navbar-item-use-available-space {
+  min-width: 100%;
+}
+
+/* Fix the margins for visual consistency on very small screens */
+
+/* Also fix the top margins (needed due to the navbar's fixed top position) */
+
+.container-main {
+  margin-top: 56px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Prevent glitching under the navbar */
+
+.container-header {
+  margin-top: 56px;
+  padding-top: 0.5rem;
+}
+
+/* Fit the posts correctly */
+
+.container-posts {
+  padding-bottom: 0.5rem;
+}
+
+/* Prevent the image from glitching out on the sides*/
+
+.img-fluid-post {
+  width: 100%;
+  height: auto;
+}
+
+/* Set the post's card's minimum height */
+
+.card-post-overview {
+  min-height: 140px;
+}
+
+/* Remove the border-radius from the jumbotron */
+
+.jumbotron-community-header {
+  border-radius: 0;
+  margin-bottom: -3rem !important;
+  padding-bottom: 6rem !important;
+}
+
+/* Style the search bar button correctly */
+
+.btn-searchbar {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* border: 1px solid #ced4da; */
+  border-left: 0px solid transparent;
+}
+
+.btn-global-search {
+  border: 1px solid transparent;
+}
+
+/* Make the search input grey */
+
+.form-control-grey:focus {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Set a max width to the searchbar to prevent it from interfering with the tabs on smaller screens*/
+  .input-group-searchbar {
+    max-width: 180px;
+  }
+}
+
+/* Make the community's title smaller on smaller devices and enable line breaks */
+
+@media screen and (max-width: 575.98px) {
+  .header-title {
+    font-size: 3rem;
+    overflow-wrap: break-word;
+  }
+  .jumbotron-community-header {
+    margin-bottom: -3rem !important;
+    padding-bottom: 4rem !important;
+  }
+}
+
+/* Translucent tabs background for the community headers */
+.bg-community-tabs {
+  background: #f8f9fab3;
+}
+
+/* Set the post's max height if on bigger devices */
+
+@media screen and (min-width: 768px) {
+  .card-post-overview {
+    max-height: 140px;
+  }
+}
+
+.img-fluid-post-crop-container {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+}
+
+.img-fluid-post-crop-container img {
+  width: 100%;
+  height: auto;
+  margin-bottom: auto;
+}
+
+/* Add the correct widths to the buttons on mobile */
+
+@media screen and (max-width: 767.98px) {
+  .text-votes {
+    min-width: 20%;
+  }
+}
+
+/* Style the buttons for the card's actions more minimal */
+
+.btn-card-vote-action {
+  border: 0;
+}
+
+/* Remove the dropleft styling from card buttons */
+
+.btn-card-vote-more {
+  border-radius: .2rem !important;
+}
+
+/* Make the post's meta section uniform */
+
+.text-card-vote-by {
+  font-size: .875rem;
+}
+
+/* "Join Community" Button */
+.btn-community-join {
+  background: #007bffcc;
+}
+/* Custom edits for the Cyberpunk community */
+.jumbotron-community-header-c-cyberpunk {
+  background-color: white;
+  /* background-image: url('http://www.neondystopia.com/wp-content/uploads/2014/10/dystopia-cyberpunk_00353178.jpg'); */
+  background: -webkit-radial-gradient(top center, ellipse cover, rgba(50,50,50,0.2) 0%,rgba(0,0,0,0.5) 100%), url('http://www.neondystopia.com/wp-content/uploads/2014/10/dystopia-cyberpunk_00353178.jpg') repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+}

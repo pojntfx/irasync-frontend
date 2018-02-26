@@ -17,13 +17,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "mockups": "live-server mockups/ --port=3002",
+    "docs": "live-server docs/ --port=3003"
   },
   "description": "A react-based frontend for an Irasync backend.",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  },
   "author": "Felix Pojtinger",
   "license": "GPL-3.0"
 }

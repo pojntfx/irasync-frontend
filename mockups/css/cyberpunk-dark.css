@@ -1,0 +1,111 @@
+/* Make the body background dark */
+
+body {
+  background: #020E12!important;
+  font-family: 'Changa', cursive;
+}
+
+.bg-dark {
+  background: rgba(9, 54, 70, 0.103)!important;
+}
+
+.bg-dark-navbar {
+  background: rgba(9, 54, 70, 0.8) !important;
+}
+
+.bg-none {
+  background: transparent!important;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #28a745 !important;
+}
+
+.btn-primary {
+  background: #28a745!important;
+}
+
+.jumbotron-community-header {
+  margin-top: -56px;
+  padding-top: 6rem !important;
+}
+
+.nav-link.active {
+  color: #28a745!important;
+  background-color: #28a74642!important;
+  border-color: #28a745!important;
+}
+
+li.active>a {
+  color: #28a745!important;
+}
+
+.btn-secondary {
+  background: rgba(9, 54, 70, 0.8) !important;
+}
+
+.form-control-grey.text-secondary {
+  background: rgba(9, 54, 70, 0.8) !important;
+  border-color: #28a745!important;
+}
+
+.link-light {
+  color: #28a745!important;
+}
+
+.text-muted, .text-secondary, .nav-link {
+  color: rgba(33, 179, 233, 0.8) !important;
+}
+
+.btn-community-join {
+  background: rgba(17, 104, 136, 0.8) !important;
+}
+
+.btn-community-join:hover {
+  background: #46ff71ad!important;
+}
+
+.btn-outline-secondary {
+  color: rgba(33, 179, 233, 0.8) !important;
+}
+
+.text-community-header {
+  color: #41ff6d!important;
+}
+
+input::placeholder {
+  color: #41ff6d9b!important;
+}
+
+.btn {
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.input-group>.btn {
+  border-top-left-radius: 0rem;
+  border-bottom-left-radius: 0rem;
+  border-top-right-radius: 1rem;
+}
+
+.input-group>input {
+  border-bottom-left-radius: 1rem;
+}
+
+.card {
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.nav-item>a {
+  border-top-left-radius: 1rem!important;
+}
+
+.nav-item>a:hover {
+  border-top-left-radius: initial!important;
+  border-top-right-radius: 1rem!important;
+}
+
+.dropdown-menu>.dropdown-item:hover {
+  background: rgba(10, 72, 95, 0.8)!important;
+}
