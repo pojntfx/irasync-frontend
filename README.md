@@ -9,12 +9,21 @@ An Irasync frontend implemented using React, Semantic UI and Apollo Client.
 yarn install
 # Serve app on http://localhost:3000
 yarn start
+
 # Serve mockups on http://localhost:3002
 yarn mockups
-# Update docs (run this before serving them)
-yarn docs:update
-# Serve docs on http://localhost:3003
+
+# Update and serve docs (annotated source on http://localhost:3003, full docs on http://localhost:3004)
 yarn docs
+# Only update the docs
+yarn docs:update
+# Only serve the docs on (annotated source on http://localhost:3003, full docs on http://localhost:3004)
+yarn docs:serve
+
+# To do the same with only the annotated source, run
+yarn docs:minimal<command> # with <command> as either :update to update, :serve to serve and nothing to do both
+# To do the same with only the full docs, run
+yarn docs:full<command> # with <command> as either :update to update, :serve to serve and nothing to do both
 ```
 
 ## Screenshots

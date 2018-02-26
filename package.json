@@ -18,12 +18,26 @@
   "scripts": {
     "start": "react-scripts start",
     "mockups": "live-server mockups/ --port=3002",
-    "docs": "live-server docs/ --port=3003"
+    "docs": "npm-run-all --parallel docs:minimal docs:full",
+    "docs:update": "npm run-script docs:minimal:update; npm run-script docs:full:update",
+    "docs:serve": "npm run-script docs:minimal:serve; npm run-script docs:full:serve",
+    "docs:minimal": "npm run-script docs:minimal:update; npm run-script docs:minimal:serve;",
+    "docs:minimal:update": "docco --layout=parallel src/* src/components/*/* src/routes/* -o docs/minimal",
+    "docs:minimal:serve": "live-server docs/minimal --port=3003 --open=/src/index.html",
+    "docs:full": "npm run-script docs:full:update; npm run-script docs:full:serve;",
+    "docs:full:update": "esdoc",
+    "docs:full:serve": "live-server docs/full --port=3004 --open=/index.html"
   },
   "description": "A react-based frontend for an Irasync backend.",
   "main": "index.js",
   "devDependencies": {
-    "live-server": "^1.2.0"
+    "docco": "^0.8.0",
+    "esdoc": "^1.0.4",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-jsx-plugin": "^1.0.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "live-server": "^1.2.0",
+    "npm-run-all": "^4.1.2"
   },
   "author": "Felicitas Pojtinger",
   "license": "GPL-3.0"
