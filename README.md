@@ -28,35 +28,51 @@ yarn docs:full<command> # with <command> as either :update to update, :serve to 
 
 ## Screenshots
 
-> Below are the screenshots of the "static_mockups" branch. These may be outdated.
+> Below are the screenshots of the "static_mockups" branch as well as screenshots from before the move to React. These may be outdated.
+
+### Angular evaluation with ng-bootstrap
+
+![User menu popup](screenshots/angular/community_popup_user.png)
+
+![Card menu popup desktop](screenshots/angular/community_popup_card.png)
+
+![Signup](screenshots/angular/signup.png)
+
+![Community desktop](screenshots/angular/community.png)
+
+![Browse menu popup mobile](screenshots/angular/community_mobile_popup_browse.png)
+
+![Card menu popup mobile](screenshots/angular/community_mobile_popup_card.png)
+
+### Mockups created with Bootstrap
 
 ### A community in light mode
 
 #### Initial view on desktop
 
-![A screenshot of a community in light mode on desktop](screenshots/c_cyberpunk_light_lg_top.jpg)
+![A screenshot of a community in light mode on desktop](screenshots/mockups/c_cyberpunk_light_lg_top.jpg)
 
 #### Scrolled down view on desktop
 
-![A screenshot of a community in light mode on desktop, scrolled down](screenshots/c_cyberpunk_light_lg_bottom.png)
+![A screenshot of a community in light mode on desktop, scrolled down](screenshots/mockups/c_cyberpunk_light_lg_bottom.png)
 
 #### Initial view on mobile
 
-![A screenshot of a community in light mode on mobile](screenshots/c_cyberpunk_light_sm.png)
+![A screenshot of a community in light mode on mobile](screenshots/mockups/c_cyberpunk_light_sm.png)
 
 ### A community in dark mode
 
 #### Initial view on desktop (dark mode)
 
-![A screenshot of a community in dark mode on desktop](screenshots/c_cyberpunk_dark_lg_top.jpg)
+![A screenshot of a community in dark mode on desktop](screenshots/mockups/c_cyberpunk_dark_lg_top.jpg)
 
 #### Scrolled down view on mobile
 
-![A screenshot of a community in dark mode on mobile](screenshots/c_cyberpunk_dark_sm_bottom.png)
+![A screenshot of a community in dark mode on mobile](screenshots/mockups/c_cyberpunk_dark_sm_bottom.png)
 
 ### The home page (Older, more minimal version)
 
-![A screenshot of the home page in light mode on desktop](screenshots/home_light_lg.png)
+![A screenshot of the home page in light mode on desktop](screenshots/mockups/home_light_lg.png)
 
 ## License
 
