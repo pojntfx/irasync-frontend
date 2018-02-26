@@ -17,7 +17,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Routes/Screens
 import Home from "./routes/Home";
-import Login from "./routes/Login";
+import { Signin } from "./routes/Signin";
+import { Signup } from "./routes/Signup";
 
 // Authorization header (token will be pulled from localStorage every time a request is sent)
 const authLink = setContext((_, { headers }) => {
@@ -51,9 +52,13 @@ render(
         <Route path="/f" component={Home} />
         <Route path="/feed" component={Home} />
 
-        {/* Login */}
-        <Route exact path="/l" component={Login} />
-        <Route path="/login" component={Login} />
+        {/* Signup */}
+        <Route exact path="/su" component={Signup} />
+        <Route exact path="/signup" component={Signup} />
+
+        {/* Signin */}
+        <Route exact path="/si" component={Signin} />
+        <Route exact path="/signin" component={Signin} />
 
         {/* <Route path="/c" component={Community} />
         <Route path="/community" component={Community} />
@@ -63,7 +68,7 @@ render(
       </div>
     </Router>
   </ApolloProvider>,
-  document.getElementById("root")
+  document.getElementById("isf")
 );
 
 // Enable PWA support

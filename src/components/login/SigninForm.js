@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
-export default class SigninForm extends Component {
-  switchToSignup = () => {
-    this.props.onSwitchToSignup();
-  };
+// Router Link
+import { Link } from "react-router-dom";
 
+export default class SigninForm extends Component {
   onSubmit = event => {
     // Don't reload
     event.preventDefault();
@@ -18,10 +17,10 @@ export default class SigninForm extends Component {
   };
 
   render() {
-    const { switchToSignup, onSubmit } = this;
+    const { onSubmit } = this;
     return (
       <div>
-        <p>Signin Form</p>
+        <p>Sign in</p>
 
         <form onSubmit={onSubmit}>
           <input
@@ -39,7 +38,7 @@ export default class SigninForm extends Component {
           <button type="submit">Sign in</button>
         </form>
 
-        <button onClick={switchToSignup}>To signup</button>
+        <Link to="/signup">To sign up</Link>
       </div>
     );
   }
