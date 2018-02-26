@@ -21,9 +21,9 @@ yarn docs:update
 yarn docs:serve
 
 # To do the same with only the annotated source, run
-yarn docs:minimal<command> # with <command> as either :update to update, :serve to serve and nothing to do both
+yarn docs:minimal<command> # with <command> being :update to update, :serve to serve and nothing to do both
 # To do the same with only the full docs, run
-yarn docs:full<command> # with <command> as either :update to update, :serve to serve and nothing to do both
+yarn docs:full<command> # with <command> being :update to update, :serve to serve and nothing to do both
 ```
 
 ## Screenshots
