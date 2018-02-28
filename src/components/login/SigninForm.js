@@ -3,40 +3,56 @@ import React, { Component } from "react";
 // Router Link
 import { Link } from "react-router-dom";
 
+import { Form } from "semantic-ui-react";
+
 export default class SigninForm extends Component {
+  state = { email: "", password: "" };
+
+  handleInput = (event, { name, value }) => {
+    this.setState({ [name]: value });
+  };
+
   onSubmit = event => {
     // Don't reload
     event.preventDefault();
     // Get the variables from the form and pass it
-    const email = this.emailInput.value;
-    const password = this.passwordInput.value;
+    const { email, password } = this.state;
     this.props.onSignin({ email, password });
     // Clear the form
-    this.emailInput.value = "";
-    this.passwordInput.value = "";
+    this.setState({
+      email: "",
+      password: ""
+    });
   };
 
   render() {
-    const { onSubmit } = this;
+    const { handleInput, onSubmit } = this;
+    const { email, password } = this.state;
+
     return (
       <div>
-        <p>Sign in</p>
-
-        <form onSubmit={onSubmit}>
-          <input
-            type="email"
-            placeholder="Email"
-            ref={emailInput => (this.emailInput = emailInput)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            ref={passwordInput => (this.passwordInput = passwordInput)}
-            required
-          />
-          <button type="submit">Sign in</button>
-        </form>
+        <Form onSubmit={onSubmit}>
+          <Form.Group widths="equal">
+            <Form.Input
+              placeholder="Email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={handleInput}
+              required
+              autoFocus
+            />
+            <Form.Input
+              placeholder="Password"
+              name="password"
+              type="password"
+              value={password}
+              onChange={handleInput}
+              required
+            />
+            <Form.Button content="Submit" />
+          </Form.Group>
+        </Form>
 
         <Link to="/signup">To sign up</Link>
       </div>

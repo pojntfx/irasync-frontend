@@ -4,6 +4,10 @@ import React, { Component } from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
+// Components
+import MainWrapper from "../components/global/MainWrapper";
+import MainNavigation from "../components/global/MainNavigation";
+
 // Dumb component
 import SigninForm from "../components/login/SigninForm";
 
@@ -32,7 +36,10 @@ class SigninTemplate extends Component {
     const { onSignin } = this;
     return (
       <div>
-        <SigninForm onSignin={onSignin} />
+        <MainNavigation />
+        <MainWrapper>
+          <SigninForm onSignin={onSignin} />
+        </MainWrapper>
       </div>
     );
   }

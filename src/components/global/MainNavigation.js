@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // Semantic
-import { Menu } from "semantic-ui-react";
+import { Menu, Icon } from "semantic-ui-react";
 
 // Router
 import { NavLink } from "react-router-dom";
@@ -30,14 +30,9 @@ export default class MainNavigation extends Component {
             />
           </Menu.Menu>
           <Menu.Menu position="right">
-            <Menu.Item
-              as={NavLink}
-              name="sign in"
-              link
-              to="/signup"
-              icon="sign in"
-              activeClassName="active"
-            />
+            <Menu.Item as={NavLink} link to="/signin" activeClassName="active">
+              <Icon name="sign in" />Sign in
+            </Menu.Item>
           </Menu.Menu>
         </Menu>
       </div>
