@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 
-// Router
-import { Link } from "react-router-dom";
-
 // Components
 import { Feed } from "../components/home/Feed";
+import MainNavigation from "../components/global/MainNavigation";
+import MainWrapper from "../components/global/MainWrapper";
 
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <Link to="/signup">Sign up / Sign in</Link>
-        <Feed />
+        <MainNavigation />
+        <MainWrapper>
+          <Feed />
+        </MainWrapper>
       </div>
     );
   }
