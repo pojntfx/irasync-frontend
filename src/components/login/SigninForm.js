@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // Router Link
 import { Link } from "react-router-dom";
 
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 
 export default class SigninForm extends Component {
   state = { email: "", password: "" };
@@ -31,7 +31,7 @@ export default class SigninForm extends Component {
 
     return (
       <div>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} error>
           <Form.Group widths="equal">
             <Form.Input
               placeholder="Email"
@@ -50,11 +50,12 @@ export default class SigninForm extends Component {
               onChange={handleInput}
               required
             />
-            <Form.Button content="Submit" />
+          </Form.Group>
+          <Form.Group>
+            <Form.Button basic primary content="Sign in" />
+            <Button basic secondary as={Link} to="/signup" content="Sign up" />
           </Form.Group>
         </Form>
-
-        <Link to="/signup">To sign up</Link>
       </div>
     );
   }
