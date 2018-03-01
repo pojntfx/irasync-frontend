@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 // Semantic
-import { Form, Button, Image } from "semantic-ui-react";
+import { Form, Button, Image, Responsive } from "semantic-ui-react";
 
 // Logo
 import logo from "../../assets/logo-light-gradient-green-blue.svg";
@@ -34,7 +34,7 @@ const Logo = styled(LogoTemplate)`
   margin-bottom: 1rem;
 `;
 
-export default class SigninForm extends Component {
+class SigninForm extends Component {
   state = { email: "", password: "" };
 
   handleInput = (event, { name, value }) => {
@@ -57,9 +57,10 @@ export default class SigninForm extends Component {
   render() {
     const { handleInput, onSubmit } = this;
     const { email, password } = this.state;
+    const { className } = this.props;
 
     return (
-      <Form onSubmit={onSubmit} error>
+      <Form onSubmit={onSubmit}>
         <Logo />
         <Form.Input
           placeholder="Email"
@@ -79,7 +80,7 @@ export default class SigninForm extends Component {
           required
         />
         <Form.Group widths="equal">
-          <Form.Field>
+          <Form.Field className={className}>
             <Button fluid secondary as={Link} to="/signup" content="Sign up" />
           </Form.Field>
           <Form.Button fluid primary content="Sign in" />
@@ -88,3 +89,10 @@ export default class SigninForm extends Component {
     );
   }
 }
+
+// Reverse the button order on sm (signin should be the first button since it is the primary action)
+export default styled(SigninForm)`
+  @media (max-width: ${Responsive.onlyMobile.maxWidth}px) {
+    order: 2;
+  }
+`;
