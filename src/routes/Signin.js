@@ -26,6 +26,7 @@ class SigninTemplate extends Component {
         console.log("Got the token:", token);
         localStorage.setItem("token", token);
         console.log("Token in local storage:", localStorage.getItem("token"));
+        this.props.history.push("/");
       })
       .catch(error => {
         console.log("Error while signing in.", error);
