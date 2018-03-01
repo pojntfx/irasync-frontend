@@ -3,9 +3,17 @@ import React, { Component } from "react";
 // Semantic
 import { Container } from "semantic-ui-react";
 
-export default class MainWrapper extends Component {
+// Styled components
+import styled from "styled-components";
+
+class MainWrapper extends Component {
   render() {
-    const { children } = this.props;
-    return <Container style={{ paddingTop: "6rem" }}>{children}</Container>;
+    const { children, className } = this.props;
+    return <Container className={className}>{children}</Container>;
   }
 }
+
+// Add a margin to the top
+export default styled(MainWrapper)`
+  padding-top: 6rem;
+`;

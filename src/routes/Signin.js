@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
 // Components
-import MainWrapper from "../components/global/MainWrapper";
+import LoginWrapper from "../components/login/LoginWrapper";
 import MainNavigation from "../components/global/MainNavigation";
 
 // Dumb component
@@ -35,12 +35,13 @@ class SigninTemplate extends Component {
 
   render() {
     const { onSignin } = this;
+
     return (
       <div>
         <MainNavigation />
-        <MainWrapper>
+        <LoginWrapper>
           <SigninForm onSignin={onSignin} />
-        </MainWrapper>
+        </LoginWrapper>
       </div>
     );
   }
