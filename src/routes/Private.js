@@ -4,7 +4,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 // Protected drafts route
-export const Private = ({ component: Component, isAuthenticated, ...rest }) => (
+export const Private = ({ render: Component, isAuthenticated, ...rest }) => (
   <Route
     {...rest}
     render={props =>

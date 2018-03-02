@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 
 // Semantic
-import { Menu, Icon } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 
 // Router
 import { NavLink } from "react-router-dom";
+
+// Components
+import UserMenu from "./UserMenu";
 
 export default class MainNavigation extends Component {
   render() {
@@ -30,11 +33,7 @@ export default class MainNavigation extends Component {
               activeClassName="active"
             />
           </Menu.Menu>
-          <Menu.Menu position="right">
-            <Menu.Item as={NavLink} link to="/signin" activeClassName="active">
-              <Icon name="sign in" />Sign in
-            </Menu.Item>
-          </Menu.Menu>
+          <UserMenu {...this.props} />
         </Menu>
       </div>
     );
