@@ -13,16 +13,23 @@ import { setContext } from "apollo-link-context";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 // React router
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 // Routes/Screens
 import Home from "./routes/Home";
 import { Signin } from "./routes/Signin";
 import { Signup } from "./routes/Signup";
+import { Private as PrivateRoute } from "./routes/Private";
+
+// Update authorization state
+const authorizationState = () => {
+  return localStorage.getItem("token") ? true : false;
+};
 
 // Authorization header (token will be pulled from localStorage every time a request is sent)
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("token");
+  // Get the token
+  let token = localStorage.getItem("token");
   return {
     headers: {
       ...headers,
@@ -49,16 +56,37 @@ render(
       <div>
         {/* Home */}
         <Route exact path="/" component={Home} />
-        <Route path="/f" component={Home} />
-        <Route path="/feed" component={Home} />
+        <Route exact path="/feed" render={() => <Redirect to="/" />} />
+        <Route exact path="/f" render={() => <Redirect to="/" />} />
+
+        {/* Drafts */}
+        <PrivateRoute
+          path="/drafts"
+          component={Home}
+          isAuthenticated={authorizationState}
+        />
+        <PrivateRoute
+          path="/d"
+          component={Home}
+          isAuthenticated={authorizationState}
+        />
 
         {/* Signup */}
-        <Route exact path="/su" component={Signup} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/su" render={() => <Redirect to="/signup" />} />
 
         {/* Signin */}
-        <Route exact path="/si" component={Signin} />
-        <Route exact path="/signin" component={Signin} />
+        <Route
+          exact
+          path="/signin"
+          render={props => (
+            <Signin
+              onSuccessfullSignin={() => authorizationState()}
+              {...props}
+            />
+          )}
+        />
+        <Route exact path="/si" render={() => <Redirect to="/signin" />} />
 
         {/* <Route path="/c" component={Community} />
         <Route path="/community" component={Community} />

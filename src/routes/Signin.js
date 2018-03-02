@@ -26,6 +26,9 @@ class SigninTemplate extends Component {
         console.log("Got the token:", token);
         localStorage.setItem("token", token);
         console.log("Token in local storage:", localStorage.getItem("token"));
+        // Update the authorization data (this is necessary when accessing a protected
+        // area and then going back to a normal route without reloading)
+        this.props.onSuccessfullSignin();
         this.props.history.push("/");
       })
       .catch(error => {

@@ -16,7 +16,8 @@ export default class MainNavigation extends Component {
               as={NavLink}
               name="feed"
               link
-              to="/feed"
+              to="/"
+              exact
               icon="feed"
               activeClassName="active"
             />
