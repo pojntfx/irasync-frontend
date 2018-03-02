@@ -41,7 +41,7 @@ class SigninTemplate extends Component {
 
     return (
       <div>
-        <MainNavigation />
+        <MainNavigation {...this.props} />
         <LoginWrapper>
           <SigninForm onSignin={onSignin} />
         </LoginWrapper>

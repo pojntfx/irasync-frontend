@@ -55,20 +55,28 @@ render(
     <Router>
       <div>
         {/* Home */}
-        <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <Home isAuthenticated={() => authorizationState()} {...props} />
+          )}
+        />
         <Route exact path="/feed" render={() => <Redirect to="/" />} />
         <Route exact path="/f" render={() => <Redirect to="/" />} />
 
         {/* Drafts */}
         <PrivateRoute
           path="/drafts"
-          component={Home}
           isAuthenticated={authorizationState}
+          render={props => (
+            <Home isAuthenticated={() => authorizationState()} {...props} />
+          )}
         />
         <PrivateRoute
           path="/d"
-          component={Home}
           isAuthenticated={authorizationState}
+          render={() => <Redirect to="/drafts" />}
         />
 
         {/* Signup */}
@@ -81,6 +89,7 @@ render(
           path="/signin"
           render={props => (
             <Signin
+              isAuthenticated={() => authorizationState()}
               onSuccessfullSignin={() => authorizationState()}
               {...props}
             />
