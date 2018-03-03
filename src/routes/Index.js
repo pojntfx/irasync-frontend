@@ -11,7 +11,7 @@ import {
 // Routes/Screens
 import Home from "./Home";
 import Signin from "./Signin";
-import { Signup } from "./Signup";
+import Signup from "./Signup";
 import { Private as PrivateRoute } from "./Private";
 import FourZeroFour from "./404";
 
@@ -68,10 +68,6 @@ class Index extends Component {
             render={() => <Redirect to="/drafts" />}
           />
 
-          {/* Signup */}
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/su" render={() => <Redirect to="/signup" />} />
-
           {/* Signin */}
           <Route
             exact
@@ -86,6 +82,21 @@ class Index extends Component {
             )}
           />
           <Route exact path="/si" render={() => <Redirect to="/signin" />} />
+
+          {/* Signup */}
+          <Route
+            exact
+            path="/signup"
+            render={props => (
+              <Signup
+                isAuthenticated={() => authorizationState()}
+                onSuccessfullSignup={() => refetchAuthState()}
+                onSignout={() => onSignout()}
+                {...props}
+              />
+            )}
+          />
+          <Route exact path="/su" render={() => <Redirect to="/signup" />} />
 
           {/* 404 */}
           <Route component={FourZeroFour} />
