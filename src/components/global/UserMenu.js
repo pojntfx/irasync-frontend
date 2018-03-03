@@ -25,13 +25,23 @@ export default class UserMenu extends Component {
         </Menu.Menu>
       );
     } else {
-      return (
-        <Menu.Menu position="right">
-          <Menu.Item as={NavLink} link to="/signin" activeClassName="active">
-            <Icon name="sign in" />Sign in
-          </Menu.Item>
-        </Menu.Menu>
-      );
+      if (this.props.location.pathname === "/signup") {
+        return (
+          <Menu.Menu position="right">
+            <Menu.Item as={NavLink} link to="/signup" activeClassName="active">
+              <Icon name="add user" />Sign up
+            </Menu.Item>
+          </Menu.Menu>
+        );
+      } else {
+        return (
+          <Menu.Menu position="right">
+            <Menu.Item as={NavLink} link to="/signin" activeClassName="active">
+              <Icon name="sign in" />Sign in
+            </Menu.Item>
+          </Menu.Menu>
+        );
+      }
     }
   }
 }

@@ -30,6 +30,7 @@ const Logo = styled(LogoTemplate)`
   /* Show that the heading is not a label */
   ~ .text-below-logo {
     margin-bottom: 1rem;
+    text-align: center;
   }
   /* Make the logo not that big */
   max-width: 250px !important;
@@ -91,7 +92,12 @@ class SigninForm extends Component {
     let errorExists = graphQLErrors || networkError ? true : false;
 
     return (
-      <Form onSubmit={onSubmit} loading={loading} error={errorExists}>
+      <Form
+        onSubmit={onSubmit}
+        loading={loading}
+        error={errorExists}
+        className={className}
+      >
         <Logo />
         <Form.Input
           placeholder="Email"
@@ -112,7 +118,7 @@ class SigninForm extends Component {
         />
         <ErrorMessage networkError={networkError} errors={graphQLErrors} />
         <Form.Group widths="equal">
-          <Form.Field className={className}>
+          <Form.Field>
             <Button fluid secondary as={Link} to="/signup" content="Sign up" />
           </Form.Field>
           <Form.Button fluid primary content="Sign in" />
@@ -122,9 +128,13 @@ class SigninForm extends Component {
   }
 }
 
-// Reverse the button order on sm (signin should be the first button since it is the primary action)
 export default styled(SigninForm)`
+  /* Prevent the error messages from getting to wide */
+  max-width: 300px !important;
+  /* Reverse the button order on sm (signin should be the first button since it is the primary action) */
   @media (max-width: ${Responsive.onlyMobile.maxWidth}px) {
-    order: 2;
+    > .equal.width.fields > .field:first-child {
+      order: 2;
+    }
   }
 `;
