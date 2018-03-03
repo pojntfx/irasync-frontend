@@ -7,14 +7,20 @@ import { Menu, Icon } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
 export default class UserMenu extends Component {
+  onSignout = () => {
+    this.props.onSignout();
+  };
+
   render() {
     const { isAuthenticated } = this.props;
+
+    const { onSignout } = this;
 
     if (isAuthenticated()) {
       return (
         <Menu.Menu position="right">
-          <Menu.Item as={NavLink} link to="/drafts" activeClassName="active">
-            <Icon name="user" />Profile
+          <Menu.Item onClick={onSignout}>
+            <Icon name="sign out" />Sign out
           </Menu.Item>
         </Menu.Menu>
       );

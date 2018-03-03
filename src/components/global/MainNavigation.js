@@ -10,7 +10,13 @@ import { NavLink } from "react-router-dom";
 import UserMenu from "./UserMenu";
 
 export default class MainNavigation extends Component {
+  onSignout = () => {
+    this.props.onSignout();
+  };
+
   render() {
+    const { onSignout } = this;
+
     return (
       <div>
         <Menu fixed="top">
@@ -33,7 +39,7 @@ export default class MainNavigation extends Component {
               activeClassName="active"
             />
           </Menu.Menu>
-          <UserMenu {...this.props} />
+          <UserMenu {...this.props} onSignout={onSignout} />
         </Menu>
       </div>
     );

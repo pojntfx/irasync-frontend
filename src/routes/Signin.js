@@ -53,13 +53,18 @@ class Signin extends Component {
       });
   };
 
+  onSignout = () => {
+    console.log("signing out ...");
+    this.props.onSignout();
+  };
+
   render() {
-    const { onSignin } = this;
+    const { onSignin, onSignout } = this;
     const { error } = this.state;
 
     return (
       <div>
-        <MainNavigation {...this.props} />
+        <MainNavigation {...this.props} onSignout={onSignout} />
         <LoginWrapper>
           <SigninForm onSignin={onSignin} errors={error} />
         </LoginWrapper>
