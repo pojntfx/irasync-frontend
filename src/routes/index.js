@@ -15,14 +15,18 @@ import { Signup } from "./Signup";
 import { Private as PrivateRoute } from "./Private";
 import FourZeroFour from "./404";
 
-// Update authorization state
-const authorizationState = () => {
-  return localStorage.getItem("token") ? true : false;
-};
+// Components
+import Loading from "../components/global/Loading";
 
-export default class Index extends Component {
+// Apollo
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
+
+class Index extends Component {
   render() {
-    return (
+    const { data: { loading, error, me, refetch } } = this.props;
+
+    const IndexUI = () => (
       <Router>
         <Switch>
           {/* Home */}
@@ -61,7 +65,7 @@ export default class Index extends Component {
             render={props => (
               <Signin
                 isAuthenticated={() => authorizationState()}
-                onSuccessfullSignin={() => authorizationState()}
+                onSuccessfullSignin={() => refetchAuthState()}
                 {...props}
               />
             )}
@@ -72,12 +76,40 @@ export default class Index extends Component {
           <Route component={FourZeroFour} />
 
           {/* <Route path="/c" component={Community} />
-      <Route path="/community" component={Community} />
-
-      <Route path="/p" component={Person} />
-      <Route path="/community" component={Person} /> */}
+          <Route path="/community" component={Community} />
+    
+          <Route path="/p" component={Person} />
+          <Route path="/community" component={Person} /> */}
         </Switch>
       </Router>
     );
+
+    // For stronger security, this could be run on every route change. This in however not
+    // being done for better performance.
+    let authorizationState = () => (me ? true : false);
+
+    const refetchAuthState = () => {
+      refetch();
+    };
+
+    if (loading) {
+      return <Loading />;
+    } else if (error) {
+      return <IndexUI />;
+    } else {
+      return <IndexUI />;
+    }
   }
 }
+
+// Get user id: if it can be queried, the user is authenticated.
+const GET_CURRENT_USER_ID = gql`
+  query {
+    me {
+      id
+    }
+  }
+`;
+
+// Export the component with data
+export default graphql(GET_CURRENT_USER_ID)(Index);
