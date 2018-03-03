@@ -1,0 +1,83 @@
+import React, { Component } from "react";
+
+// React router
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+
+// Routes/Screens
+import Home from "./Home";
+import Signin from "./Signin";
+import { Signup } from "./Signup";
+import { Private as PrivateRoute } from "./Private";
+import FourZeroFour from "./404";
+
+// Update authorization state
+const authorizationState = () => {
+  return localStorage.getItem("token") ? true : false;
+};
+
+export default class Index extends Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          {/* Home */}
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Home isAuthenticated={() => authorizationState()} {...props} />
+            )}
+          />
+          <Route exact path="/feed" render={() => <Redirect to="/" />} />
+          <Route exact path="/f" render={() => <Redirect to="/" />} />
+
+          {/* Drafts */}
+          <PrivateRoute
+            path="/drafts"
+            isAuthenticated={authorizationState}
+            render={props => (
+              <Home isAuthenticated={() => authorizationState()} {...props} />
+            )}
+          />
+          <PrivateRoute
+            path="/d"
+            isAuthenticated={authorizationState}
+            render={() => <Redirect to="/drafts" />}
+          />
+
+          {/* Signup */}
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/su" render={() => <Redirect to="/signup" />} />
+
+          {/* Signin */}
+          <Route
+            exact
+            path="/signin"
+            render={props => (
+              <Signin
+                isAuthenticated={() => authorizationState()}
+                onSuccessfullSignin={() => authorizationState()}
+                {...props}
+              />
+            )}
+          />
+          <Route exact path="/si" render={() => <Redirect to="/signin" />} />
+
+          {/* 404 */}
+          <Route component={FourZeroFour} />
+
+          {/* <Route path="/c" component={Community} />
+      <Route path="/community" component={Community} />
+
+      <Route path="/p" component={Person} />
+      <Route path="/community" component={Person} /> */}
+        </Switch>
+      </Router>
+    );
+  }
+}
