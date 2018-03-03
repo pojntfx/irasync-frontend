@@ -30,14 +30,17 @@ export default class MainNavigation extends Component {
               icon="feed"
               activeClassName="active"
             />
-            <Menu.Item
-              as={NavLink}
-              name="drafts"
-              link
-              to="/drafts"
-              icon="pencil"
-              activeClassName="active"
-            />
+            {/* Return the "drafts" button if user is authenticated */}
+            {this.props.isAuthenticated() ? (
+              <Menu.Item
+                as={NavLink}
+                name="drafts"
+                link
+                to="/drafts"
+                icon="pencil"
+                activeClassName="active"
+              />
+            ) : null}
           </Menu.Menu>
           <UserMenu {...this.props} onSignout={onSignout} />
         </Menu>
