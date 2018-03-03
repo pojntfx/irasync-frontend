@@ -6,7 +6,7 @@ import { graphql } from "react-apollo";
 
 // Components
 import Post from "./Post";
-import Loading from "./Loading";
+import Loading from "../global/Loading";
 import Error from "../global/Error";
 
 // Template

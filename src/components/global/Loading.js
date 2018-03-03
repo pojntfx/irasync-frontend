@@ -6,7 +6,7 @@ import { Dimmer, Loader } from "semantic-ui-react";
 export default class Loading extends Component {
   render() {
     return (
-      <Dimmer active inverted>
+      <Dimmer active inverted page>
         <Loader>Loading ...</Loader>
       </Dimmer>
     );
