@@ -13,13 +13,19 @@ import { setContext } from "apollo-link-context";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 // React router
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
 // Routes/Screens
 import Home from "./routes/Home";
 import { Signin } from "./routes/Signin";
 import { Signup } from "./routes/Signup";
 import { Private as PrivateRoute } from "./routes/Private";
+import FourZeroFour from "./routes/404";
 
 // Update authorization state
 const authorizationState = () => {
@@ -53,7 +59,7 @@ const client = new ApolloClient({
 render(
   <ApolloProvider client={client}>
     <Router>
-      <div>
+      <Switch>
         {/* Home */}
         <Route
           exact
@@ -97,12 +103,15 @@ render(
         />
         <Route exact path="/si" render={() => <Redirect to="/signin" />} />
 
+        {/* 404 */}
+        <Route component={FourZeroFour} />
+
         {/* <Route path="/c" component={Community} />
         <Route path="/community" component={Community} />
 
         <Route path="/p" component={Person} />
         <Route path="/community" component={Person} /> */}
-      </div>
+      </Switch>
     </Router>
   </ApolloProvider>,
   document.getElementById("isf")
