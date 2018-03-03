@@ -13,7 +13,7 @@ import { setContext } from "apollo-link-context";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 // Router
-import Index from "./routes/index";
+import Index from "./routes/Index";
 
 // Authorization header (token will be pulled from localStorage every time a request is sent)
 const authLink = setContext((_, { headers }) => {
@@ -39,9 +39,19 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+const onSignout = () => {
+  console.log("Signing out ...");
+  if (localStorage.getItem("token")) {
+    localStorage.removeItem("token");
+  }
+  // Reset the store so that the "sign out" button updates and
+  // for security
+  client.resetStore();
+};
+
 render(
   <ApolloProvider client={client}>
-    <Index />
+    <Index onSignout={onSignout} />
   </ApolloProvider>,
   document.getElementById("isf")
 );

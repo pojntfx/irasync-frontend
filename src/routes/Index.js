@@ -23,8 +23,14 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
 class Index extends Component {
+  onSignout = () => {
+    this.props.onSignout();
+  };
+
   render() {
     const { data: { loading, error, me, refetch } } = this.props;
+
+    const { onSignout } = this;
 
     const IndexUI = () => (
       <Router>
@@ -34,7 +40,11 @@ class Index extends Component {
             exact
             path="/"
             render={props => (
-              <Home isAuthenticated={() => authorizationState()} {...props} />
+              <Home
+                isAuthenticated={() => authorizationState()}
+                onSignout={() => onSignout()}
+                {...props}
+              />
             )}
           />
           <Route exact path="/feed" render={() => <Redirect to="/" />} />
@@ -45,7 +55,11 @@ class Index extends Component {
             path="/drafts"
             isAuthenticated={authorizationState}
             render={props => (
-              <Home isAuthenticated={() => authorizationState()} {...props} />
+              <Home
+                isAuthenticated={() => authorizationState()}
+                onSignout={() => onSignout()}
+                {...props}
+              />
             )}
           />
           <PrivateRoute
@@ -66,6 +80,7 @@ class Index extends Component {
               <Signin
                 isAuthenticated={() => authorizationState()}
                 onSuccessfullSignin={() => refetchAuthState()}
+                onSignout={() => onSignout()}
                 {...props}
               />
             )}
@@ -112,4 +127,10 @@ const GET_CURRENT_USER_ID = gql`
 `;
 
 // Export the component with data
-export default graphql(GET_CURRENT_USER_ID)(Index);
+export default graphql(GET_CURRENT_USER_ID, {
+  options: {
+    // Ignore is used here because the error is expected since it is is used to
+    // check whether the user is authenticated or not
+    errorPolicy: "ignore"
+  }
+})(Index);
