@@ -12,7 +12,19 @@ import MainNavigation from "../components/global/MainNavigation";
 import SigninForm from "../components/login/SigninForm";
 
 // Template and login logic
-class SigninTemplate extends Component {
+class Signin extends Component {
+  state = {
+    error: {}
+  };
+
+  componentDidMount() {
+    const { isAuthenticated } = this.props;
+    // If authenticated, go back to the feed (does not make sense to sign in again)
+    if (isAuthenticated()) {
+      this.props.history.push("/");
+    }
+  }
+
   onSignin = ({ email, password }) => {
     console.log("Signing in ...");
     const { mutate } = this.props;
@@ -30,20 +42,26 @@ class SigninTemplate extends Component {
         // area and then going back to a normal route without reloading)
         this.props.onSuccessfullSignin();
         this.props.history.push("/");
+        return true;
       })
       .catch(error => {
-        console.log("Error while signing in.", error);
+        // If there is a error, pass it to the form
+        if (error) {
+          this.setState({ error });
+        }
+        return false;
       });
   };
 
   render() {
     const { onSignin } = this;
+    const { error } = this.state;
 
     return (
       <div>
         <MainNavigation {...this.props} />
         <LoginWrapper>
-          <SigninForm onSignin={onSignin} />
+          <SigninForm onSignin={onSignin} errors={error} />
         </LoginWrapper>
       </div>
     );
@@ -60,4 +78,4 @@ const POST_SIGNIN = gql`
 `;
 
 // Export the component with the mutation
-export const Signin = graphql(POST_SIGNIN)(SigninTemplate);
+export default graphql(POST_SIGNIN)(Signin);

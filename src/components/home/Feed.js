@@ -7,7 +7,7 @@ import { graphql } from "react-apollo";
 // Components
 import Post from "./Post";
 import Loading from "./Loading";
-import Error from "./Error";
+import Error from "../global/Error";
 
 // Template
 function FeedTemplate({ data: { loading, error, feed } }) {
