@@ -22,7 +22,7 @@ import {
 
 // Routes/Screens
 import Home from "./routes/Home";
-import { Signin } from "./routes/Signin";
+import Signin from "./routes/Signin";
 import { Signup } from "./routes/Signup";
 import { Private as PrivateRoute } from "./routes/Private";
 import FourZeroFour from "./routes/404";

@@ -6,7 +6,7 @@ import { Dimmer, Loader } from "semantic-ui-react";
 export default class Error extends Component {
   render() {
     return (
-      <Dimmer active>
+      <Dimmer active page>
         <Loader indeterminate>
           Timeout while connecting to backend. Please refresh the page to try
           again.
