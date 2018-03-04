@@ -26,10 +26,11 @@ const GET_FEED = gql`
     feed {
       id
       title
-      text
+      createdAt
       author {
         name
       }
+      text
     }
   }
 `;
