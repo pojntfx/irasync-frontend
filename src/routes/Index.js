@@ -15,9 +15,6 @@ import Signup from "./Signup";
 import { Private as PrivateRoute } from "./Private";
 import FourZeroFour from "./404";
 
-// Components
-import Loading from "../components/global/Loading";
-
 // Apollo
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
@@ -119,7 +116,8 @@ class Index extends Component {
     };
 
     if (loading) {
-      return <Loading />;
+      // Loading is handled in the routes
+      return <IndexUI />;
     } else if (error) {
       return <IndexUI />;
     } else {
