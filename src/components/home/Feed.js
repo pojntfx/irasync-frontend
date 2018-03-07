@@ -8,16 +8,17 @@ import { graphql } from "react-apollo";
 import Post from "./Post";
 import Loading from "../global/Loading";
 import Error from "../global/Error";
+import DataMissing from "../global/DataMissing";
 
 // Template
 function FeedTemplate({ data: { loading, error, feed } }) {
-  if (loading) {
-    return <Loading />;
-  }
-  if (error) {
-    return <Error />;
-  }
-  return <div>{feed.map(post => <Post key={post.id} {...post} />)}</div>;
+  if (loading) return <Loading />;
+  if (error) return <Error />;
+  else if (!feed[0])
+    return (
+      <DataMissing message="There do not seem to be any posts in this Irasync yet." />
+    );
+  else return <div>{feed.map(post => <Post key={post.id} {...post} />)}</div>;
 }
 
 // Get all public posts from backend
