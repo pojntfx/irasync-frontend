@@ -9,7 +9,7 @@ export const Private = ({ render: Component, isAuthenticated, ...rest }) => (
     {...rest}
     render={props =>
       // If user is authenticated, show the specified component
-      isAuthenticated ? (
+      isAuthenticated() ? (
         <Component {...props} />
       ) : (
         // If user is not authenticated, redirect to sign in

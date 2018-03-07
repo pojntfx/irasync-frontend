@@ -10,6 +10,7 @@ import {
 
 // Routes/Screens
 import Home from "./Home";
+import Drafts from "./Drafts";
 import Signin from "./Signin";
 import Signup from "./Signup";
 import { Private as PrivateRoute } from "./Private";
@@ -52,7 +53,7 @@ class Index extends Component {
             path="/drafts"
             isAuthenticated={authorizationState}
             render={props => (
-              <Home
+              <Drafts
                 isAuthenticated={() => authorizationState()}
                 onSignout={() => onSignout()}
                 {...props}
@@ -115,14 +116,11 @@ class Index extends Component {
       refetch();
     };
 
-    if (loading) {
+    if (loading)
       // Loading is handled in the routes
       return <IndexUI />;
-    } else if (error) {
-      return <IndexUI />;
-    } else {
-      return <IndexUI />;
-    }
+    else if (error) return <IndexUI />;
+    else return <IndexUI />;
   }
 }
 

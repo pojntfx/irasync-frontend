@@ -3,19 +3,19 @@ import React, { Component } from "react";
 // Semantic
 import { Card, Button, Icon } from "semantic-ui-react";
 
-export default class Post extends Component {
-  onUpvote = () => {
+export default class Draft extends Component {
+  onPublish = () => {
     const { id } = this.props;
-    console.log(`Upvoted post ${id}!`);
+    console.log(`Published draft ${id}!`);
   };
 
-  onDownvote = () => {
+  onDelete = () => {
     const { id } = this.props;
-    console.log(`Downvoted post ${id}!`);
+    console.log(`Deleted draft ${id}!`);
   };
 
   postAge = () => {
-    // Get the post's age in hours
+    // Get the draft's age in hours
     const timeDifferenceInHours =
       Math.floor(Date.now() - Date.parse(this.props.createdAt)) / 1000 / 3600;
 
@@ -46,24 +46,22 @@ export default class Post extends Component {
   };
 
   render() {
-    const { title, author: { name }, text } = this.props;
-    const { onUpvote, onDownvote, postAge } = this;
+    const { title, text } = this.props;
+    const { onPublish, onDelete, postAge } = this;
 
     return (
       <Card fluid>
         <Card.Content>
           <Card.Header>{title}</Card.Header>
-          <Card.Meta>
-            {postAge()} ago by {name}
-          </Card.Meta>
+          <Card.Meta>Created {postAge()} ago</Card.Meta>
           <Card.Description>{text}</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Button basic color="green" onClick={onUpvote} size="small">
-            <Icon name="chevron up" />Upvote
+          <Button basic color="green" onClick={onPublish} size="small">
+            <Icon name="send" />Publish
           </Button>
-          <Button basic color="red" onClick={onDownvote} size="small">
-            <Icon name="chevron down" />Downvote
+          <Button basic color="red" onClick={onDelete} size="small">
+            <Icon name="trash" />Delete
           </Button>
         </Card.Content>
       </Card>
