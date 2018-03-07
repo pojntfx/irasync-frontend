@@ -33,4 +33,10 @@ const GET_DRAFTS = gql`
 `;
 
 // Export the component with data
-export const DraftsList = graphql(GET_DRAFTS)(DraftsTemplate);
+export const DraftsList = graphql(GET_DRAFTS, {
+  options: {
+    // Ignore is used here because if the user logs out while he is looking at his drafts he'll
+    // get an error, and since a component handels them this is unneccessary.
+    errorPolicy: "ignore"
+  }
+})(DraftsTemplate);

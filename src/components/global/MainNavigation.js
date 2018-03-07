@@ -16,6 +16,7 @@ export default class MainNavigation extends Component {
 
   render() {
     const { onSignout } = this;
+    const { isAuthenticated } = this.props;
 
     return (
       <div>
@@ -31,7 +32,7 @@ export default class MainNavigation extends Component {
               activeClassName="active"
             />
             {/* Return the "drafts" button if user is authenticated */}
-            {this.props.isAuthenticated() ? (
+            {isAuthenticated() ? (
               <Menu.Item
                 as={NavLink}
                 name="drafts"

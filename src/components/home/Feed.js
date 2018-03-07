@@ -16,7 +16,7 @@ function FeedTemplate({ data: { loading, error, feed } }) {
   if (error) return <Error />;
   else if (!feed[0])
     return (
-      <DataMissing message="There do not seem to be any posts in this Irasync yet." />
+      <DataMissing message="There don't seem to be any posts in this Irasync yet." />
     );
   else return <div>{feed.map(post => <Post key={post.id} {...post} />)}</div>;
 }
