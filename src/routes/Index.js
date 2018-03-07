@@ -16,6 +16,10 @@ import Signup from "./Signup";
 import { Private as PrivateRoute } from "./Private";
 import FourZeroFour from "./404";
 
+// Components
+import MainNavigation from "../components/global/MainNavigation";
+import Loading from "../components/global/Loading";
+
 // Apollo
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
@@ -108,6 +112,22 @@ class Index extends Component {
       </Router>
     );
 
+    const LoadingUI = () => (
+      <Router>
+        <Switch>
+          <Route
+            path="/"
+            render={() => (
+              <div>
+                <MainNavigation location="" isAuthenticated={() => false} />
+                <Loading />
+              </div>
+            )}
+          />
+          <Route />
+        </Switch>
+      </Router>
+    );
     // For stronger security, this could be run on every route change. This in however not
     // being done for better performance.
     let authorizationState = () => (me ? true : false);
@@ -117,8 +137,9 @@ class Index extends Component {
     };
 
     if (loading)
-      // Loading is handled in the routes
-      return <IndexUI />;
+      // Loading is handled in the routes, but if the auth state is being checked
+      // this is being done here to prevent the need for a reload
+      return <LoadingUI />;
     else if (error) return <IndexUI />;
     else return <IndexUI />;
   }
