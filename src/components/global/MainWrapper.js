@@ -16,4 +16,5 @@ class MainWrapper extends Component {
 // Add a margin to the top
 export default styled(MainWrapper)`
   padding-top: 6rem;
+  padding-bottom: 6rem;
 `;

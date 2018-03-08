@@ -16,12 +16,17 @@ function DraftsTemplate({ data: { loading, error, drafts } }) {
   else if (error) return <Error />;
   else if (!drafts[0])
     return <DataMissing message="You have not yet created any drafts." />;
-  else
-    return <div>{drafts.map(post => <Draft key={post.id} {...post} />)}</div>;
+  else {
+    // Reverse the drafts to show the most recent one
+    const reversedDrafts = drafts.concat().reverse();
+    return (
+      <div>{reversedDrafts.map(post => <Draft key={post.id} {...post} />)}</div>
+    );
+  }
 }
 
-// Get all public posts from backend
-const GET_DRAFTS = gql`
+// Get all public drafts from backend
+export const GET_DRAFTS = gql`
   query {
     drafts {
       id
