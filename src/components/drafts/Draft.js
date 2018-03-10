@@ -21,7 +21,7 @@ const CardActionGroup = styled(Button.Group)`
 export default class Draft extends Component {
   onPublish = () => {
     const { id } = this.props;
-    console.log(`Published draft ${id}!`);
+    this.props.onPublish(id);
   };
 
   onEdit = () => {
@@ -49,13 +49,7 @@ export default class Draft extends Component {
         </Card.Content>
         <Card.Content extra>
           <CardActionGroup>
-            <Button
-              disabled
-              basic
-              color="green"
-              onClick={onPublish}
-              size="small"
-            >
+            <Button basic color="green" onClick={onPublish} size="small">
               <Icon name="send" />Publish
             </Button>
             <Button disabled basic color="blue" onClick={onEdit} size="small">
