@@ -29,7 +29,9 @@ export default class Draft extends Component {
         <Card.Content>
           <Card.Header>{title}</Card.Header>
           <Card.Meta>Created {postAge(createdAt)} ago</Card.Meta>
-          <MarkdownDisplay content={text} />
+          <Card.Description>
+            <MarkdownDisplay content={text} />
+          </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <Button basic color="green" onClick={onPublish} size="small">
