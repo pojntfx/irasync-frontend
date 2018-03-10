@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // Components
-import { Feed } from "../components/home/Feed";
+import Feed from "../components/home/Feed";
 import MainNavigation from "../components/global/MainNavigation";
 import MainWrapper from "../components/global/MainWrapper";
 

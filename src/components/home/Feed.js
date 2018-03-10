@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 
 // Apollo
 import gql from "graphql-tag";
-import { graphql } from "react-apollo";
+import { graphql, compose } from "react-apollo";
+
+// Delete post mutation
+import { POST_DELETE_POST } from "../drafts/DraftsList";
 
 // Components
 import Post from "./Post";
@@ -11,22 +14,47 @@ import Error from "../global/Error";
 import DataMissing from "../global/DataMissing";
 
 // Template
-function FeedTemplate({ data: { loading, error, feed } }) {
-  if (loading) return <Loading />;
-  if (error) return <Error />;
-  else if (!feed[0])
-    return (
-      <DataMissing message="There don't seem to be any posts in this Irasync yet." />
-    );
-  else
-    return (
-      <div>
-        {feed
-          .concat()
-          .reverse()
-          .map(post => <Post key={post.id} {...post} />)}
-      </div>
-    );
+class Feed extends Component {
+  onDelete = id => {
+    const { mutate } = this.props;
+    mutate({
+      variables: {
+        id
+      },
+      refetchQueries: [
+        {
+          query: GET_FEED
+        }
+      ]
+    })
+      .then(({ data: { deletePost: { id } } }) => {
+        console.log("Deleted post with id:", id);
+      })
+      .catch(error => {
+        // If there is an error, log it
+        console.log(error);
+      });
+  };
+
+  render() {
+    const { data: { loading, error, feed } } = this.props;
+
+    if (loading) return <Loading />;
+    if (error) return <Error />;
+    else if (!feed[0])
+      return (
+        <DataMissing message="There don't seem to be any posts in this Irasync yet." />
+      );
+    else
+      return (
+        <div>
+          {feed
+            .concat()
+            .reverse()
+            .map(post => <Post key={post.id} {...post} />)}
+        </div>
+      );
+  }
 }
 
 // Get all public posts from backend
@@ -45,4 +73,4 @@ const GET_FEED = gql`
 `;
 
 // Export the component with data
-export const Feed = graphql(GET_FEED)(FeedTemplate);
+export default compose(graphql(GET_FEED), graphql(POST_DELETE_POST))(Feed);

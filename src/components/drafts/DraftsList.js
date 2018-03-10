@@ -11,7 +11,7 @@ import Error from "../global/Error";
 import DataMissing from "../global/DataMissing";
 
 // Template
-class DraftList extends Component {
+class DraftsList extends Component {
   onDelete = id => {
     const { deletePostMutation } = this.props;
     deletePostMutation({
@@ -115,7 +115,7 @@ export const POST_PUBLISH_DRAFT = gql`
 `;
 
 // Export the component with data and mutation
-export const DraftsList = compose(
+export default compose(
   graphql(GET_DRAFTS, {
     options: {
       // Ignore is used here because if the user logs out while he is looking at his drafts he'll
@@ -125,4 +125,4 @@ export const DraftsList = compose(
   }),
   graphql(POST_PUBLISH_DRAFT, { name: "publishDraftMutation" }),
   graphql(POST_DELETE_POST, { name: "deletePostMutation" })
-)(DraftList);
+)(DraftsList);

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // Components
-import { DraftsList } from "../components/drafts/DraftsList";
+import DraftsList from "../components/drafts/DraftsList";
 import MainNavigation from "../components/global/MainNavigation";
 import MainWrapper from "../components/global/MainWrapper";
 import Section from "../components/global/Section";
