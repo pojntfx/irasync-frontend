@@ -3,6 +3,9 @@ import React, { Component } from "react";
 // Semantic
 import { Card, Button, Icon } from "semantic-ui-react";
 
+// Components
+import MarkdownDisplay from "../global/MarkdownDisplay";
+
 export default class Draft extends Component {
   onPublish = () => {
     const { id } = this.props;
@@ -54,7 +57,7 @@ export default class Draft extends Component {
         <Card.Content>
           <Card.Header>{title}</Card.Header>
           <Card.Meta>Created {postAge()} ago</Card.Meta>
-          <Card.Description>{text}</Card.Description>
+          <MarkdownDisplay content={text} />
         </Card.Content>
         <Card.Content extra>
           <Button basic color="green" onClick={onPublish} size="small">
