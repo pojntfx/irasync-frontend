@@ -64,18 +64,20 @@ class DraftList extends Component {
     else if (!drafts[0])
       return <DataMissing message="You have not yet created any drafts." />;
     else {
-      // Reverse the drafts to show the most recent one
-      const reversedDrafts = drafts.concat().reverse();
       return (
         <div>
-          {reversedDrafts.map(post => (
-            <Draft
-              key={post.id}
-              {...post}
-              onPublish={onPublish}
-              onDelete={onDelete}
-            />
-          ))}
+          {// Reverse the drafts to show the most recent one
+          drafts
+            .concat()
+            .reverse()
+            .map(post => (
+              <Draft
+                key={post.id}
+                {...post}
+                onPublish={onPublish}
+                onDelete={onDelete}
+              />
+            ))}
         </div>
       );
     }
