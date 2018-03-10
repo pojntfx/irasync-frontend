@@ -18,7 +18,15 @@ function FeedTemplate({ data: { loading, error, feed } }) {
     return (
       <DataMissing message="There don't seem to be any posts in this Irasync yet." />
     );
-  else return <div>{feed.map(post => <Post key={post.id} {...post} />)}</div>;
+  else
+    return (
+      <div>
+        {feed
+          .concat()
+          .reverse()
+          .map(post => <Post key={post.id} {...post} />)}
+      </div>
+    );
 }
 
 // Get all public posts from backend
