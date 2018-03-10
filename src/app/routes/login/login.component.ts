@@ -145,6 +145,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe(
         ({ data }) => {
           console.log('Received data:', data);
+          // Store the token in a cookie
+          window.localStorage.addItem('token', data.token);
+          console.log(window.localStorage.getItem('token'));
           this.router.navigate(['']);
         },
         error => {
