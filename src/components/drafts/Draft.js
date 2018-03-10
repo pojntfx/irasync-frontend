@@ -6,8 +6,17 @@ import { Card, Button, Icon } from "semantic-ui-react";
 // Human-readable post/draft age
 import { postAge } from "../home/Post";
 
+// Styled components
+import styled from "styled-components";
+
 // Components
 import MarkdownDisplay from "../global/MarkdownDisplay";
+
+const CardActionGroup = styled(Button.Group)`
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: none;
+`;
 
 export default class Draft extends Component {
   onPublish = () => {
@@ -15,14 +24,19 @@ export default class Draft extends Component {
     console.log(`Published draft ${id}!`);
   };
 
+  onEdit = () => {
+    const { id } = this.props;
+    console.log(`Editing draft ${id}!`);
+  };
+
   onDelete = () => {
     const { id } = this.props;
-    console.log(`Deleted draft ${id}!`);
+    this.props.onDelete(id);
   };
 
   render() {
     const { title, text, createdAt } = this.props;
-    const { onPublish, onDelete } = this;
+    const { onPublish, onEdit, onDelete } = this;
 
     return (
       <Card fluid>
@@ -34,12 +48,23 @@ export default class Draft extends Component {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Button basic color="green" onClick={onPublish} size="small">
-            <Icon name="send" />Publish
-          </Button>
-          <Button basic color="red" onClick={onDelete} size="small">
-            <Icon name="trash" />Delete
-          </Button>
+          <CardActionGroup>
+            <Button
+              disabled
+              basic
+              color="green"
+              onClick={onPublish}
+              size="small"
+            >
+              <Icon name="send" />Publish
+            </Button>
+            <Button disabled basic color="blue" onClick={onEdit} size="small">
+              <Icon name="edit" />Edit
+            </Button>
+            <Button basic color="red" onClick={onDelete} size="small">
+              <Icon name="trash" />Delete
+            </Button>
+          </CardActionGroup>
         </Card.Content>
       </Card>
     );
