@@ -3,6 +3,9 @@ import React, { Component } from "react";
 // Semantic
 import { Card, Button, Icon } from "semantic-ui-react";
 
+// Components
+import MarkdownDisplay from "../global/MarkdownDisplay";
+
 // Post's age in a human-readable format
 export const postAge = createdAt => {
   // Get the post's age in hours
@@ -57,7 +60,9 @@ export default class Post extends Component {
           <Card.Meta>
             {postAge(createdAt)} ago by {name}
           </Card.Meta>
-          <Card.Description>{text}</Card.Description>
+          <Card.Description>
+            <MarkdownDisplay content={text} />
+          </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <Button basic color="green" onClick={onUpvote} size="small">
