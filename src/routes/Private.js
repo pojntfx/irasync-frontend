@@ -3,7 +3,7 @@ import React from "react";
 // React router
 import { Route, Redirect } from "react-router-dom";
 
-// Protected drafts route
+// Protected route
 export const Private = ({ render: Component, isAuthenticated, ...rest }) => (
   <Route
     {...rest}

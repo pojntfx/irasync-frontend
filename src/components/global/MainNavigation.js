@@ -31,13 +31,13 @@ export default class MainNavigation extends Component {
               icon="feed"
               activeClassName="active"
             />
-            {/* Return the "drafts" button if user is authenticated */}
+            {/* Return the "compose" button if user is authenticated */}
             {isAuthenticated() ? (
               <Menu.Item
                 as={NavLink}
-                name="drafts"
+                name="compose"
                 link
-                to="/drafts"
+                to="/compose"
                 icon="pencil"
                 activeClassName="active"
               />

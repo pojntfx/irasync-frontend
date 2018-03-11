@@ -7,7 +7,7 @@ import MainWrapper from "../components/global/MainWrapper";
 import Section from "../components/global/Section";
 import EditDraft from "../components/drafts/EditDraft";
 
-export default class Drafts extends Component {
+export default class Compose extends Component {
   onSignout = () => {
     this.props.onSignout();
   };
