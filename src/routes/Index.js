@@ -10,7 +10,7 @@ import {
 
 // Routes/Screens
 import Home from "./Home";
-import Drafts from "./Drafts";
+import Compose from "./Compose";
 import Signin from "./Signin";
 import Signup from "./Signup";
 import { Private as PrivateRoute } from "./Private";
@@ -52,12 +52,12 @@ class Index extends Component {
           <Route exact path="/feed" render={() => <Redirect to="/" />} />
           <Route exact path="/f" render={() => <Redirect to="/" />} />
 
-          {/* Drafts */}
+          {/* Compose */}
           <PrivateRoute
-            path="/drafts"
+            path="/compose"
             isAuthenticated={authorizationState}
             render={props => (
-              <Drafts
+              <Compose
                 isAuthenticated={() => authorizationState()}
                 onSignout={() => onSignout()}
                 {...props}
@@ -65,9 +65,9 @@ class Index extends Component {
             )}
           />
           <PrivateRoute
-            path="/d"
+            path="/co"
             isAuthenticated={authorizationState}
-            render={() => <Redirect to="/drafts" />}
+            render={() => <Redirect to="/compose" />}
           />
 
           {/* Signin */}

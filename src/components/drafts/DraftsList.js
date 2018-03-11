@@ -4,6 +4,9 @@ import React, { Component } from "react";
 import gql from "graphql-tag";
 import { graphql, compose } from "react-apollo";
 
+// Semantic
+import { Transition, List } from "semantic-ui-react";
+
 // Components
 import Draft from "./Draft";
 import Loading from "../global/Loading";
@@ -65,20 +68,17 @@ class DraftsList extends Component {
       return <DataMissing message="You have not yet created any drafts." />;
     else {
       return (
-        <div>
+        <Transition.Group as={List} duration={250} animation="scale">
           {// Reverse the drafts to show the most recent one
           drafts
             .concat()
             .reverse()
             .map(post => (
-              <Draft
-                key={post.id}
-                {...post}
-                onPublish={onPublish}
-                onDelete={onDelete}
-              />
+              <List.Item key={post.id}>
+                <Draft {...post} onPublish={onPublish} onDelete={onDelete} />
+              </List.Item>
             ))}
-        </div>
+        </Transition.Group>
       );
     }
   }
