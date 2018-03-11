@@ -18,7 +18,9 @@ class DeleteDialog extends Component {
   render() {
     const { onClose, onDelete } = this;
 
-    const { className, active } = this.props;
+    const { className, active, isPublished } = this.props;
+
+    const postOrDraft = isPublished ? "post" : "draft";
 
     return (
       <Modal
@@ -28,24 +30,26 @@ class DeleteDialog extends Component {
         className={className}
         size="small"
       >
-        <Modal.Header>Are you sure you want to delete this draft?</Modal.Header>
+        <Modal.Header>
+          Are you sure you want to delete this {postOrDraft}?
+        </Modal.Header>
         <Modal.Content>
-          Once you{"'"}ve deleted this draft, it will be gone forever (a long
-          time!).
+          Once you{"'"}ve deleted this {postOrDraft}, it will be gone forever (a
+          long time!).
         </Modal.Content>
         <Modal.Actions>
           <Button
             secondary
             icon="cancel"
             labelPosition="left"
-            content="No, don't delete this draft"
+            content={`No, don't delete this ${postOrDraft}`}
             onClick={onClose}
           />
           <Button
             color="red"
             icon="trash"
             labelPosition="left"
-            content="Yes, delete this draft"
+            content={`Yes, delete this ${postOrDraft}`}
             onClick={onDelete}
           />
         </Modal.Actions>
