@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+// Styled components
+import styled from "styled-components";
+
 // Semantic
 import { Menu } from "semantic-ui-react";
 
@@ -9,43 +12,46 @@ import { NavLink } from "react-router-dom";
 // Components
 import UserMenu from "./UserMenu";
 
-export default class MainNavigation extends Component {
+class MainNavigation extends Component {
   onSignout = () => {
     this.props.onSignout();
   };
 
   render() {
     const { onSignout } = this;
-    const { isAuthenticated } = this.props;
+    const { className, isAuthenticated } = this.props;
 
     return (
-      <div>
-        <Menu fixed="top">
-          <Menu.Menu position="left">
+      <Menu fixed="top" className={className}>
+        <Menu.Menu position="left">
+          <Menu.Item
+            as={NavLink}
+            name="feed"
+            link
+            to="/"
+            exact
+            icon="feed"
+            activeClassName="active"
+          />
+          {/* Return the "compose" button if user is authenticated */}
+          {isAuthenticated() ? (
             <Menu.Item
               as={NavLink}
-              name="feed"
+              name="compose"
               link
-              to="/"
-              exact
-              icon="feed"
+              to="/compose"
+              icon="pencil"
               activeClassName="active"
             />
-            {/* Return the "compose" button if user is authenticated */}
-            {isAuthenticated() ? (
-              <Menu.Item
-                as={NavLink}
-                name="compose"
-                link
-                to="/compose"
-                icon="pencil"
-                activeClassName="active"
-              />
-            ) : null}
-          </Menu.Menu>
-          <UserMenu {...this.props} onSignout={onSignout} />
-        </Menu>
-      </div>
+          ) : null}
+        </Menu.Menu>
+        <UserMenu {...this.props} onSignout={onSignout} />
+      </Menu>
     );
   }
 }
+
+export default styled(MainNavigation)`
+  /* Enable overflow on mobile */
+  overflow-x: auto;
+`;
