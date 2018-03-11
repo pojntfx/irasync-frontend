@@ -72,7 +72,7 @@ export default class Draft extends Component {
   };
 
   render() {
-    const { title, text, createdAt } = this.props;
+    const { title, text, createdAt, isPublished } = this.props;
     const {
       onPublishDialog,
       onPublish,
@@ -94,21 +94,33 @@ export default class Draft extends Component {
         </Card.Content>
         <Card.Content extra>
           <CardActionGroup>
-            <PublishDialog
-              onPublish={onPublish}
-              onCancel={onCancel}
-              active={publishModalIsActive}
-            />
-            <Button basic color="green" onClick={onPublishDialog} size="small">
-              <Icon name="send" />Publish
-            </Button>
-            <Button disabled basic color="blue" onClick={onEdit} size="small">
-              <Icon name="edit" />Edit
-            </Button>
+            {isPublished ? null : (
+              <PublishDialog
+                onPublish={onPublish}
+                onCancel={onCancel}
+                active={publishModalIsActive}
+              />
+            )}
+            {isPublished ? null : (
+              <Button
+                basic
+                color="green"
+                onClick={onPublishDialog}
+                size="small"
+              >
+                <Icon name="send" />Publish
+              </Button>
+            )}
+            {isPublished ? null : (
+              <Button disabled basic color="blue" onClick={onEdit} size="small">
+                <Icon name="edit" />Edit
+              </Button>
+            )}
             <DeleteDialog
               onDelete={onDelete}
               onCancel={onCancel}
               active={deleteModalIsActive}
+              isPublished={isPublished}
             />
             <Button basic color="red" onClick={onDeleteDialog} size="small">
               <Icon name="trash" />Delete
