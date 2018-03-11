@@ -14,7 +14,7 @@ import MarkdownDisplay from "../global/MarkdownDisplay";
 import PublishDialog from "./PublishDialog";
 import DeleteDialog from "./DeleteDialog";
 
-const CardActionGroup = styled(Button.Group)`
+export const CardActionGroup = styled(Button.Group)`
   overflow-x: auto;
   display: flex;
   flex-wrap: none;
