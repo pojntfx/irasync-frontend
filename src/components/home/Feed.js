@@ -4,9 +4,6 @@ import React, { Component } from "react";
 import gql from "graphql-tag";
 import { graphql, compose } from "react-apollo";
 
-// Delete post mutation
-import { POST_DELETE_POST } from "../drafts/DraftsList";
-
 // Components
 import Post from "./Post";
 import Loading from "../global/Loading";
@@ -15,27 +12,6 @@ import DataMissing from "../global/DataMissing";
 
 // Template
 class Feed extends Component {
-  onDelete = id => {
-    const { mutate } = this.props;
-    mutate({
-      variables: {
-        id
-      },
-      refetchQueries: [
-        {
-          query: GET_FEED
-        }
-      ]
-    })
-      .then(({ data: { deletePost: { id } } }) => {
-        console.log("Deleted post with id:", id);
-      })
-      .catch(error => {
-        // If there is an error, log it
-        console.log(error);
-      });
-  };
-
   render() {
     const { data: { loading, error, feed } } = this.props;
 
@@ -73,4 +49,4 @@ const GET_FEED = gql`
 `;
 
 // Export the component with data
-export default compose(graphql(GET_FEED), graphql(POST_DELETE_POST))(Feed);
+export default compose(graphql(GET_FEED))(Feed);

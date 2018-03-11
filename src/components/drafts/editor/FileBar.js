@@ -8,24 +8,51 @@ import styled from "styled-components";
 
 class FileBar extends Component {
   render() {
-    const { className, onDelete, onDiscard, onPublish } = this.props;
+    const {
+      className,
+      isNew,
+      onDelete,
+      onDiscard,
+      onPublish,
+      onSave
+    } = this.props;
 
     return (
       <div className={className}>
         <FileActionGroup>
-          <Button color="red" onClick={onDelete} type="button" size="small">
-            <Icon name="trash" />Delete
-          </Button>
+          {/* You can't delete a non-published post, so don't render it */}
+          {isNew ? null : (
+            <Button color="red" onClick={onDelete} type="button" size="small">
+              <Icon name="trash" />Delete
+            </Button>
+          )}
           <Button color="orange" onClick={onDiscard} type="button" size="small">
             <Icon name="cancel" />Discard
           </Button>
         </FileActionGroup>
         <FileActionGroup>
-          <Button disabled secondary onClick={onPublish} size="small">
-            <Icon name="send" />Publish
+          <Button
+            secondary
+            onClick={onPublish}
+            size="small"
+            type="submit"
+            animated="vertical"
+          >
+            <Button.Content visible>
+              <Icon name="send" />Publish
+            </Button.Content>
+            <Button.Content hidden>
+              <Icon name="rocket" />
+            </Button.Content>
           </Button>
           <Button.Or />
-          <Button color="green" size="small" type="submit" animated="vertical">
+          <Button
+            color="green"
+            onClick={onSave}
+            size="small"
+            type="submit"
+            animated="vertical"
+          >
             <Button.Content visible>
               <Icon name="check" />Save
             </Button.Content>

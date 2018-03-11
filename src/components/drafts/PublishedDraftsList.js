@@ -71,7 +71,7 @@ class PublishedDraftsList extends Component {
   }
 }
 
-const GET_YOUR_POSTS = gql`
+export const GET_YOUR_POSTS = gql`
   query {
     drafts(arePublished: true) {
       id
