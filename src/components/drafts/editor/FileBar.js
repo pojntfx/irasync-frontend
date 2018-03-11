@@ -13,10 +13,10 @@ class FileBar extends Component {
     return (
       <div className={className}>
         <FileActionGroup>
-          <Button disabled color="red" onClick={onDelete} size="small">
+          <Button color="red" onClick={onDelete} type="button" size="small">
             <Icon name="trash" />Delete
           </Button>
-          <Button disabled color="orange" onClick={onDiscard} size="small">
+          <Button color="orange" onClick={onDiscard} type="button" size="small">
             <Icon name="cancel" />Discard
           </Button>
         </FileActionGroup>
