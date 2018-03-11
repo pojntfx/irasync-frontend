@@ -54,7 +54,7 @@ export default class Draft extends Component {
 
   onEdit = () => {
     const { id } = this.props;
-    console.log(`Editing draft ${id}!`);
+    this.props.onEdit(id);
   };
 
   onDeleteDialog = () => {
@@ -102,17 +102,21 @@ export default class Draft extends Component {
               />
             )}
             {isPublished ? null : (
-              <Button
-                basic
-                color="green"
-                onClick={onPublishDialog}
-                size="small"
-              >
+              <Button color="green" onClick={onPublishDialog} size="small">
                 <Icon name="send" />Publish
               </Button>
             )}
             {isPublished ? null : (
-              <Button disabled basic color="blue" onClick={onEdit} size="small">
+              // It should navigate all the way up, that's why there is a href
+              // #compose-a-draft could be used if there would be another section
+              // above the editor
+              <Button
+                color="blue"
+                onClick={onEdit}
+                as="a"
+                href="#"
+                size="small"
+              >
                 <Icon name="edit" />Edit
               </Button>
             )}
@@ -122,7 +126,7 @@ export default class Draft extends Component {
               active={deleteModalIsActive}
               isPublished={isPublished}
             />
-            <Button basic color="red" onClick={onDeleteDialog} size="small">
+            <Button color="red" onClick={onDeleteDialog} size="small">
               <Icon name="trash" />Delete
             </Button>
           </CardActionGroup>

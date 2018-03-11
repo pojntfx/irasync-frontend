@@ -50,6 +50,7 @@ class DraftsList extends Component {
     })
       .then(({ data: { publish: { id } } }) => {
         console.log("Published draft with id:", id);
+        this.props.onPublish()
       })
       .catch(error => {
         // If there is an error, log it
@@ -57,10 +58,14 @@ class DraftsList extends Component {
       });
   };
 
+  onEdit = id => {
+    this.props.onEdit(id);
+  };
+
   render() {
     const { data: { loading, error, drafts } } = this.props;
 
-    const { onPublish, onDelete } = this;
+    const { onPublish, onDelete, onEdit } = this;
 
     if (loading) return <Loading />;
     else if (error) return <Error />;
@@ -79,6 +84,7 @@ class DraftsList extends Component {
                   {...post}
                   isPublished={false}
                   onPublish={onPublish}
+                  onEdit={onEdit}
                   onDelete={onDelete}
                 />
               </List.Item>
