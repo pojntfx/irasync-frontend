@@ -5,6 +5,7 @@ import { Card, Button, Icon } from "semantic-ui-react";
 
 // Components
 import MarkdownDisplay from "../global/MarkdownDisplay";
+import { CardActionGroup } from "../drafts/Draft";
 
 // Post's age in a human-readable format
 export const postAge = createdAt => {
@@ -65,12 +66,36 @@ export default class Post extends Component {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Button basic color="green" onClick={onUpvote} size="small">
-            <Icon name="chevron up" />Upvote
-          </Button>
-          <Button basic color="red" onClick={onDownvote} size="small">
-            <Icon name="chevron down" />Downvote
-          </Button>
+          <CardActionGroup>
+            <Button
+              basic
+              color="green"
+              onClick={onUpvote}
+              size="small"
+              animated="vertical"
+            >
+              <Button.Content visible>
+                <Icon name="chevron up" />Upvote
+              </Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow up" />
+              </Button.Content>
+            </Button>
+            <Button
+              basic
+              color="red"
+              onClick={onDownvote}
+              size="small"
+              animated="vertical"
+            >
+              <Button.Content visible>
+                <Icon name="chevron down" />Downvote
+              </Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow down" />
+              </Button.Content>
+            </Button>
+          </CardActionGroup>
         </Card.Content>
       </Card>
     );
