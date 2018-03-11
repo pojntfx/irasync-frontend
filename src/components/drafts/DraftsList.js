@@ -50,7 +50,7 @@ class DraftsList extends Component {
     })
       .then(({ data: { publish: { id } } }) => {
         console.log("Published draft with id:", id);
-        this.props.onPublish()
+        this.props.onPublish();
       })
       .catch(error => {
         // If there is an error, log it
@@ -68,7 +68,7 @@ class DraftsList extends Component {
     const { onPublish, onDelete, onEdit } = this;
 
     if (loading) return <Loading />;
-    else if (error) return <Error />;
+    else if (error) return <Error error={error} />;
     else if (!drafts[0])
       return <DataMissing message="You have not yet created any drafts." />;
     else {

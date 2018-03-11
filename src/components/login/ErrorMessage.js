@@ -11,7 +11,7 @@ export default class ErrorMessage extends Component {
     const { isSignup, networkError, errors } = this.props;
 
     if (networkError) {
-      return <Error />;
+      return <Error error={networkError} />;
     } else if (errors) {
       return (
         <Message error>

@@ -45,7 +45,7 @@ class PublishedDraftsList extends Component {
     const { onPublish, onDelete } = this;
 
     if (loading) return <Loading />;
-    else if (error) return <Error />;
+    else if (error) return <Error error={error} />;
     else if (!drafts[0])
       return <DataMissing message="You have not yet published any posts." />;
     else {

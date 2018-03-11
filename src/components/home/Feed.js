@@ -16,7 +16,7 @@ class Feed extends Component {
     const { data: { loading, error, feed } } = this.props;
 
     if (loading) return <Loading />;
-    if (error) return <Error />;
+    if (error) return <Error error={error} />;
     else if (!feed[0])
       return (
         <DataMissing message="There don't seem to be any posts in this Irasync yet." />

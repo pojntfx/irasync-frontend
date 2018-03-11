@@ -6,7 +6,6 @@ import { Dimmer, Loader, Header, Icon } from "semantic-ui-react";
 export default class Error extends Component {
   render() {
     const { error } = this.props;
-
     return (
       <Dimmer active page>
         <Loader indeterminate>
@@ -14,13 +13,15 @@ export default class Error extends Component {
             <Header icon inverted>
               <Icon name="warning sign" />
               <div>
-                Oh no, something went wrong! Try reloading this page. The following error
-                message may be helpful:
+                Oh no, something went wrong! Try reloading this page. The
+                following error message may be helpful:
               </div>
               <i>
-                {error.graphQLErrors.map(error =>
-                  JSON.stringify(error.message)
-                )}
+                {error.graphQLErrors[0] !== undefined
+                  ? error.graphQLErrors.map(error =>
+                      JSON.stringify(error.message)
+                    )
+                  : JSON.stringify(error)}
               </i>
             </Header>
           ) : (
