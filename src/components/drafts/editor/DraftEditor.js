@@ -10,20 +10,51 @@ import styled from "styled-components";
 import FormattingBar from "./FormattingBar";
 import ContentEditor from "./ContentEditor";
 import FileBar from "./FileBar";
+import DeleteDialog from "../DeleteDialog";
 
 class DraftEditor extends Component {
   state = {
     title: "",
     text: "",
-    loading: false
+    loading: false,
+    deleteModalIsActive: false
+  };
+
+  onDeleteDialog = () => {
+    this.setState({
+      deleteModalIsActive: true
+    });
   };
 
   onDelete = () => {
-    console.log("Deleting draft");
+    // Show the loading indicator
+    this.setState({
+      loading: true
+    });
+    const { id } = this.props;
+    this.props.onDelete({ id });
+    // Clear the form
+    this.setState({
+      title: "",
+      text: "",
+      loading: false
+    });
+  };
+
+  onCancel = () => {
+    this.setState({
+      deleteModalIsActive: false
+    });
   };
 
   onDiscard = () => {
     console.log("Discarding draft");
+    // Clear the form
+    this.setState({
+      title: "",
+      text: "",
+      loading: false
+    });
   };
 
   onPublish = () => {
@@ -63,6 +94,8 @@ class DraftEditor extends Component {
   render() {
     const {
       onDelete,
+      onDeleteDialog,
+      onCancel,
       onDiscard,
       onPublish,
       onSubmit,
@@ -70,11 +103,17 @@ class DraftEditor extends Component {
       setText
     } = this;
 
-    const { text, title, loading } = this.state;
+    const { text, title, loading, deleteModalIsActive } = this.state;
     const { className } = this.props;
 
     return (
       <Form onSubmit={onSubmit} className={className} loading={loading}>
+        <DeleteDialog
+          onDelete={onDelete}
+          onCancel={onCancel}
+          active={deleteModalIsActive}
+          isPublished={true}
+        />
         <Segment.Group>
           <Segment>
             <FormattingBar />
@@ -89,7 +128,7 @@ class DraftEditor extends Component {
           </Segment>
           <Segment>
             <FileBar
-              onDelete={onDelete}
+              onDelete={onDeleteDialog}
               onDiscard={onDiscard}
               onPublish={onPublish}
             />

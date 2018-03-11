@@ -35,7 +35,7 @@ export default class Compose extends Component {
       <div>
         <MainNavigation {...this.props} onSignout={onSignout} />
         <MainWrapper>
-          <Section id="create-a-draft" title="Create a draft">
+          <Section id="create-a-draft" title="Create or edit a draft">
             <EditDraft />
           </Section>
           <Section id="your-content" title="Continue where you left of">
