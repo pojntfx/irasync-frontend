@@ -3,6 +3,9 @@ import React, { Component } from "react";
 // Semantic
 import { Tab } from "semantic-ui-react";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import DraftsList from "../components/drafts/DraftsList";
 import PublishedDraftsList from "../components/drafts/PublishedDraftsList";
@@ -95,3 +98,7 @@ export default class Compose extends Component {
     );
   }
 }
+
+Compose.propTypes = {
+  onSignout: PropTypes.func.isRequired
+};

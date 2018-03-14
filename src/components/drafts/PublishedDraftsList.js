@@ -10,6 +10,9 @@ import { Transition, List } from "semantic-ui-react";
 // Reusable mutations
 import { POST_DELETE_POST } from "./DraftsList";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import Draft from "./Draft";
 import Loading from "../global/Loading";
@@ -70,6 +73,11 @@ class PublishedDraftsList extends Component {
     }
   }
 }
+
+PublishedDraftsList.propTypes = {
+  deletePostMutation: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
 
 export const GET_YOUR_POSTS = gql`
   query {

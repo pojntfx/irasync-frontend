@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 
 // Semantic
-import { Card, Button, Icon } from "semantic-ui-react";
+import { Card /*, Button, Icon */ } from "semantic-ui-react";
+
+// PropTypes
+import PropTypes from "prop-types";
 
 // Components
 import MarkdownDisplay from "../global/MarkdownDisplay";
-import { CardActionGroup } from "../drafts/Draft";
+// import { CardActionGroup } from "../drafts/Draft";
 
 // Post's age in a human-readable format
 export const postAge = createdAt => {
@@ -40,19 +43,19 @@ export const postAge = createdAt => {
 };
 
 export default class Post extends Component {
-  onUpvote = () => {
-    const { id } = this.props;
-    console.log(`Upvoted post ${id}!`);
-  };
+  // onUpvote = () => {
+  //   const { id } = this.props;
+  //   console.log(`Upvoted post ${id}!`);
+  // };
 
-  onDownvote = () => {
-    const { id } = this.props;
-    console.log(`Downvoted post ${id}!`);
-  };
+  // onDownvote = () => {
+  //   const { id } = this.props;
+  //   console.log(`Downvoted post ${id}!`);
+  // };
 
   render() {
     const { title, author: { name }, text, createdAt } = this.props;
-    const { onUpvote, onDownvote } = this;
+    // const { onUpvote, onDownvote } = this;
 
     return (
       <Card fluid>
@@ -65,7 +68,7 @@ export default class Post extends Component {
             <MarkdownDisplay content={text} />
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
+        {/* <Card.Content extra>
           <CardActionGroup>
             <Button
               basic
@@ -96,8 +99,15 @@ export default class Post extends Component {
               </Button.Content>
             </Button>
           </CardActionGroup>
-        </Card.Content>
+        </Card.Content> */}
       </Card>
     );
   }
 }
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.object.isRequired,
+  text: PropTypes.string,
+  createdAt: PropTypes.string.isRequired
+};

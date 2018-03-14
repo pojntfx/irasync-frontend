@@ -3,6 +3,9 @@ import React from "react";
 // React router
 import { Route, Redirect } from "react-router-dom";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Protected route
 export const Private = ({ render: Component, isAuthenticated, ...rest }) => (
   <Route
@@ -22,3 +25,8 @@ export const Private = ({ render: Component, isAuthenticated, ...rest }) => (
     }
   />
 );
+
+Private.propTypes = {
+  render: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.func.isRequired
+};

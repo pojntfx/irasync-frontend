@@ -6,6 +6,9 @@ import { Menu, Icon } from "semantic-ui-react";
 // Router
 import { NavLink } from "react-router-dom";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 export default class UserMenu extends Component {
   onSignout = () => {
     this.props.onSignout();
@@ -45,3 +48,9 @@ export default class UserMenu extends Component {
     }
   }
 }
+
+UserMenu.propTypes = {
+  onSignout: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.func.isRequired,
+  location: PropTypes.any.isRequired
+};

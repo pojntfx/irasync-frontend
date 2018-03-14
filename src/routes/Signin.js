@@ -4,6 +4,9 @@ import React, { Component } from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import LoginWrapper from "../components/login/LoginWrapper";
 import MainNavigation from "../components/global/MainNavigation";
@@ -72,6 +75,14 @@ class Signin extends Component {
     );
   }
 }
+
+Signin.propTypes = {
+  isAuthenticated: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  mutate: PropTypes.func.isRequired,
+  onSuccessfullSignin: PropTypes.func.isRequired,
+  onSignout: PropTypes.func.isRequired
+};
 
 // Send signin data and recieve token
 const POST_SIGNIN = gql`

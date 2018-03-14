@@ -4,6 +4,9 @@ import React, { Component } from "react";
 import gql from "graphql-tag";
 import { graphql, compose } from "react-apollo";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import Post from "./Post";
 import Loading from "../global/Loading";
@@ -32,6 +35,10 @@ class Feed extends Component {
       );
   }
 }
+
+Feed.propTypes = {
+  data: PropTypes.object.isRequired
+};
 
 // Get all public posts from backend
 const GET_FEED = gql`

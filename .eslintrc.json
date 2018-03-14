@@ -19,8 +19,7 @@
     "no-unreachable": "warn",
     "no-unused-vars": "warn",
     "constructor-super": "warn",
-    "valid-typeof": "warn",
-    "react/prop-types": "off"
+    "valid-typeof": "warn"
   },
   "extends": ["plugin:react/recommended"]
 }

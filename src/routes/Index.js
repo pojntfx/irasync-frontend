@@ -20,6 +20,9 @@ import FourZeroFour from "./404";
 import MainNavigation from "../components/global/MainNavigation";
 import Loading from "../components/global/Loading";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Apollo
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
@@ -144,6 +147,11 @@ class Index extends Component {
     else return <IndexUI />;
   }
 }
+
+Index.propTypes = {
+  onSignout: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
 
 // Get user id: if it can be queried, the user is authenticated.
 const GET_CURRENT_USER_ID = gql`

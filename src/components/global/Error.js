@@ -3,6 +3,9 @@ import React, { Component } from "react";
 // Semantic
 import { Dimmer, Loader, Header, Icon } from "semantic-ui-react";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 export default class Error extends Component {
   render() {
     const { error } = this.props;
@@ -33,3 +36,7 @@ export default class Error extends Component {
     );
   }
 }
+
+Error.propTypes = {
+  error: PropTypes.object
+};

@@ -6,6 +6,9 @@ import { Button, Icon } from "semantic-ui-react";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 class FormattingBar extends Component {
   render() {
     const { className } = this.props;
@@ -47,6 +50,10 @@ class FormattingBar extends Component {
     );
   }
 }
+
+FormattingBar.propTypes = {
+  className: PropTypes.string.isRequired
+};
 
 const FormatActionGroup = styled(Button.Group)`
   &:not(:last-child) {

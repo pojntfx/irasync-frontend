@@ -10,6 +10,9 @@ import { codeHighlightingStyle } from "../drafts/editor/CodeHighlighting";
 import Remarkable from "remarkable";
 import hljs from "highlight.js";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 class MarkdownDisplay extends Component {
   // Returns a html string with the markup
   textInMarkup = text => {
@@ -48,6 +51,11 @@ class MarkdownDisplay extends Component {
     );
   }
 }
+
+MarkdownDisplay.propTypes = {
+  className: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired
+};
 
 export default styled(MarkdownDisplay)`
   /* Make images responsive */

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import Feed from "../components/home/Feed";
 import MainNavigation from "../components/global/MainNavigation";
@@ -23,3 +26,7 @@ export default class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  onSignout: PropTypes.func.isRequired
+};

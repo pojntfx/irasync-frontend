@@ -9,6 +9,9 @@ import { Menu } from "semantic-ui-react";
 // Router
 import { NavLink } from "react-router-dom";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import UserMenu from "./UserMenu";
 
@@ -50,6 +53,12 @@ class MainNavigation extends Component {
     );
   }
 }
+
+MainNavigation.propTypes = {
+  onSignout: PropTypes.func,
+  className: PropTypes.string.isRequired,
+  isAuthenticated: PropTypes.func.isRequired
+};
 
 export default styled(MainNavigation)`
   /* Enable overflow on mobile */

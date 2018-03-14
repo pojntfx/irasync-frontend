@@ -9,6 +9,9 @@ import { postAge } from "../home/Post";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import MarkdownDisplay from "../global/MarkdownDisplay";
 import PublishDialog from "./PublishDialog";
@@ -135,3 +138,14 @@ export default class Draft extends Component {
     );
   }
 }
+
+Draft.propTypes = {
+  id: PropTypes.string.isRequired,
+  onEdit: PropTypes.func,
+  onPublish: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  isPublished: PropTypes.bool
+};

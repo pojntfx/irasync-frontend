@@ -8,6 +8,9 @@ import { graphql, compose } from "react-apollo";
 import { GET_DRAFTS, POST_PUBLISH_DRAFT } from "./DraftsList";
 import { GET_YOUR_POSTS } from "./PublishedDraftsList";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import DiscardDialog from "./DiscardDialog";
 import PublishDialog from "./PublishDialog";
@@ -206,6 +209,12 @@ class CreateDraft extends Component {
     );
   }
 }
+
+CreateDraft.propTypes = {
+  postDraftMutation: PropTypes.func.isRequired,
+  publishDraftMutation: PropTypes.func.isRequired,
+  onPublish: PropTypes.func.isRequired
+};
 
 // Post new draft to the server
 const POST_DRAFT = gql`
