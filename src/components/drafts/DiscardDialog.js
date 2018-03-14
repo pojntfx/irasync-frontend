@@ -6,6 +6,9 @@ import { Modal, Button } from "semantic-ui-react";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 class DiscardDialog extends Component {
   onClose = () => {
     this.props.onCancel();
@@ -57,6 +60,14 @@ class DiscardDialog extends Component {
     );
   }
 }
+
+DiscardDialog.propTypes = {
+  onCancel: PropTypes.func.isRequired,
+  onDiscard: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
+  active: PropTypes.bool,
+  isPublished: PropTypes.bool
+};
 
 // Center the modal vertically
 export default styled(DiscardDialog)`

@@ -6,6 +6,9 @@ import { Button, Icon } from "semantic-ui-react";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 class FileBar extends Component {
   render() {
     const {
@@ -65,6 +68,15 @@ class FileBar extends Component {
     );
   }
 }
+
+FileBar.propTypes = {
+  className: PropTypes.string.isRequired,
+  isNew: PropTypes.bool,
+  onDelete: PropTypes.func,
+  onDiscard: PropTypes.func.isRequired,
+  onPublish: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired
+};
 
 const breakpoint = "488";
 

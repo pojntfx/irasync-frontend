@@ -6,6 +6,9 @@ import { Modal, Button } from "semantic-ui-react";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 class PublishDialog extends Component {
   onClose = () => {
     this.props.onCancel();
@@ -56,6 +59,13 @@ class PublishDialog extends Component {
     );
   }
 }
+
+PublishDialog.propTypes = {
+  onCancel: PropTypes.func.isRequired,
+  onPublish: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
+  active: PropTypes.bool
+};
 
 // Center the modal vertically
 export default styled(PublishDialog)`

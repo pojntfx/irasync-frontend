@@ -6,6 +6,9 @@ import { Form, Responsive } from "semantic-ui-react";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import MarkdownDisplay from "../../global/MarkdownDisplay";
 
@@ -23,10 +26,10 @@ export default class ContentEditor extends Component {
   render() {
     const { onTitleInput, onTextInput } = this;
 
-    const { title, text, className } = this.props;
+    const { title, text } = this.props;
 
     return (
-      <div className={className}>
+      <div>
         <Form.Field>
           <Form.Input
             as="input"
@@ -64,6 +67,13 @@ export default class ContentEditor extends Component {
     );
   }
 }
+
+ContentEditor.propTypes = {
+  onTitleEdit: PropTypes.func.isRequired,
+  onTextEdit: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+};
 
 const DraftWrapper = styled.div`
   display: flex;

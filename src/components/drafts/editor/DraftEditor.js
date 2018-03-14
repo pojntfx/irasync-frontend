@@ -6,6 +6,9 @@ import { Segment, Form } from "semantic-ui-react";
 // Styled component
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import FormattingBar from "./FormattingBar";
 import ContentEditor from "./ContentEditor";
@@ -56,6 +59,21 @@ class DraftEditor extends Component {
     );
   }
 }
+
+DraftEditor.propTypes = {
+  className: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  onTitleEdit: PropTypes.func.isRequired,
+  onTextEdit: PropTypes.func.isRequired,
+  isNew: PropTypes.bool,
+  onDelete: PropTypes.func,
+  onDiscard: PropTypes.func.isRequired,
+  onPublish: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired
+};
 
 export default styled(DraftEditor)`
   margin-bottom: 1rem;

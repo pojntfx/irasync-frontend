@@ -12,10 +12,14 @@ import logo from "../../assets/logo-light-gradient-green-blue.svg";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import ErrorMessage from "./ErrorMessage";
 
 // Logo
+// eslint-disable-next-line
 const LogoTemplate = ({ className }) => {
   return (
     <div>
@@ -147,6 +151,12 @@ class SignupForm extends Component {
     );
   }
 }
+
+SignupForm.propTypes = {
+  className: PropTypes.string.isRequired,
+  onSignup: PropTypes.func.isRequired,
+  errors: PropTypes.object
+};
 
 export default styled(SignupForm)`
   /* Prevent the error messages from getting to wide */

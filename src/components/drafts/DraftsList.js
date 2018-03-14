@@ -7,6 +7,9 @@ import { graphql, compose } from "react-apollo";
 // Semantic
 import { Transition, List } from "semantic-ui-react";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import Draft from "./Draft";
 import Loading from "../global/Loading";
@@ -94,6 +97,14 @@ class DraftsList extends Component {
     }
   }
 }
+
+DraftsList.propTypes = {
+  deletePostMutation: PropTypes.func.isRequired,
+  publishDraftMutation: PropTypes.func.isRequired,
+  onPublish: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
 
 // Get all public drafts from backend
 export const GET_DRAFTS = gql`

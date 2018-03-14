@@ -6,6 +6,9 @@ import { Modal, Button } from "semantic-ui-react";
 // Styled components
 import styled from "styled-components";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 class SaveDialog extends Component {
   onClose = () => {
     this.props.onCancel();
@@ -58,6 +61,14 @@ class SaveDialog extends Component {
     );
   }
 }
+
+SaveDialog.propTypes = {
+  onCancel: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
+  active: PropTypes.bool,
+  isPublished: PropTypes.bool
+};
 
 // Center the modal vertically
 export default styled(SaveDialog)`

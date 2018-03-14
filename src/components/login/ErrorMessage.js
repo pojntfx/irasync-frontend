@@ -3,6 +3,9 @@ import React, { Component } from "react";
 // Semantic
 import { Message } from "semantic-ui-react";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import Error from "../global/Error";
 
@@ -34,3 +37,9 @@ export default class ErrorMessage extends Component {
     }
   }
 }
+
+ErrorMessage.propTypes = {
+  isSignup: PropTypes.bool,
+  networkError: PropTypes.object,
+  errors: PropTypes.array
+};

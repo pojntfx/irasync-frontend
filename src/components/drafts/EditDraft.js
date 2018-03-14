@@ -8,6 +8,9 @@ import { graphql, compose } from "react-apollo";
 import { GET_DRAFTS, POST_PUBLISH_DRAFT, POST_DELETE_POST } from "./DraftsList";
 import { GET_YOUR_POSTS } from "./PublishedDraftsList";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Components
 import DeleteDialog from "./DeleteDialog";
 import DiscardDialog from "./DiscardDialog";
@@ -315,6 +318,16 @@ class EditDraft extends Component {
     }
   }
 }
+
+EditDraft.propTypes = {
+  deleteDraftMutation: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  updateDraftMutation: PropTypes.func.isRequired,
+  publishDraftMutation: PropTypes.func.isRequired,
+  onPublish: PropTypes.func.isRequired,
+  onDone: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
 
 const GET_POST = gql`
   query($id: ID!) {

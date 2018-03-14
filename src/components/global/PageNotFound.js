@@ -9,6 +9,9 @@ import styled from "styled-components";
 // React router
 import { Link } from "react-router-dom";
 
+// PropTypes
+import PropTypes from "prop-types";
+
 // Rabbit picture for ... purposes
 import rabbit from "../../assets/404-rabbit.jpg";
 
@@ -50,6 +53,10 @@ const PageNotFound = ({ className }) => (
     </Card>
   </div>
 );
+
+PageNotFound.propTypes = {
+  className: PropTypes.string.isRequired
+};
 
 // Center the card
 export default styled(PageNotFound)`
