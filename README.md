@@ -1,29 +1,20 @@
-# Irasync React Frontend
+# Irasync Frontend
 
 An Irasync frontend implemented using React, Semantic UI and Apollo Client.
+
+## Demo
+
+> TODO: Add demo
 
 ## Usage
 
 ```bash
 # Install dependencies
-yarn install
-# Serve app on http://localhost:3000
-yarn start
-
-# Serve mockups on http://localhost:3002
-yarn mockups
-
-# Update and serve docs (annotated source on http://localhost:3003, full docs on http://localhost:3004)
-yarn docs
-# Only update the docs
-yarn docs:update
-# Only serve the docs on (annotated source on http://localhost:3003, full docs on http://localhost:3004)
-yarn docs:serve
-
-# To do the same with only the annotated source, run
-yarn docs:minimal<command> # with <command> being :update to update, :serve to serve and nothing to do both
-# To do the same with only the full docs, run
-yarn docs:full<command> # with <command> being :update to update, :serve to serve and nothing to do both
+npm install
+# Build and serve development version on http://localhost:3000
+npm start
+# Build and serve mockups on http://localhost:3002
+npm run mockups
 ```
 
 ## Screenshots
@@ -74,20 +65,34 @@ yarn docs:full<command> # with <command> being :update to update, :serve to serv
 
 ![A screenshot of the home page in light mode on desktop](screenshots/mockups/home_light_lg.png)
 
+## Documentation
+
+```bash
+# Update and serve docs (annotated source on http://localhost:3003, full docs on http://localhost:3004)
+npm run docs
+# Only update the docs
+npm run docs:update
+# Only serve the docs on (annotated source on http://localhost:3003, full docs on http://localhost:3004)
+npm run docs:serve
+
+# To do the same with only the annotated source, run
+npm run docs:minimal<command> # with <command> being :update to update, :serve to serve and nothing to do both
+# To do the same with only the full docs, run
+npm run docs:full<command> # with <command> being :update to update, :serve to serve and nothing to do both
+```
+
+## Deployment
+
+> TODO: Add deployment
+
 ## License
 
-Irasync React Frontend Reference Implementation
+Irasync Frontend
 Copyright (C) 2018 Felicitas Pojtinger
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+
